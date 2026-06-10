@@ -43,14 +43,14 @@ export default function Nav() {
             data-testid="nav-logo"
             className="flex items-center gap-3 group"
           >
-            <span className="h-9 w-9 rounded-full border border-[#E5E1D8] grid place-items-center font-serif-display text-[#7A1F1F] text-lg group-hover:border-[#7A1F1F] transition">
+            <span className="h-9 w-9 rounded-full border border-[#232830] grid place-items-center font-serif-display text-[#00D8FF] text-lg group-hover:border-[#00D8FF] transition">
               L
             </span>
             <div className="leading-tight">
-              <div className="font-serif-display text-base text-[#141414]">
+              <div className="font-serif-display text-base text-[#E8E8EA]">
                 Lakhdar DAMAR
               </div>
-              <div className="font-mono-tech text-[10px] uppercase tracking-[0.25em] text-[#8A8A8A]">
+              <div className="font-mono-tech text-[10px] uppercase tracking-[0.25em] text-[#6B6E74]">
                 IT Project Manager
               </div>
             </div>
@@ -62,7 +62,7 @@ export default function Nav() {
                 key={l.href}
                 href={l.href}
                 data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
-                className="font-mono-tech text-[11px] uppercase tracking-[0.18em] text-[#5C5C5C] hover:text-[#7A1F1F] transition"
+                className="font-mono-tech text-[11px] uppercase tracking-[0.18em] text-[#8B8E94] hover:text-[#00D8FF] transition"
               >
                 {l.label}
               </a>
@@ -72,7 +72,7 @@ export default function Nav() {
           <a
             href="#contact"
             data-testid="nav-cta-contact"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#7A1F1F] text-white font-medium text-sm hover:bg-[#5C1818] transition"
+            className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#00D8FF] text-[#0B0D10] font-medium text-sm hover:bg-[#33E0FF] transition"
           >
             Me contacter
             <span aria-hidden>→</span>
@@ -81,7 +81,7 @@ export default function Nav() {
           <button
             data-testid="nav-mobile-toggle"
             onClick={() => setOpen((s) => !s)}
-            className="lg:hidden h-10 w-10 grid place-items-center rounded-full border border-[#E5E1D8] text-[#141414]"
+            className="lg:hidden h-10 w-10 grid place-items-center rounded-full border border-[#232830] text-[#E8E8EA]"
             aria-label="menu"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -96,7 +96,7 @@ export default function Nav() {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="block font-mono-tech text-xs uppercase tracking-[0.2em] text-[#5C5C5C] py-2"
+                    className="block font-mono-tech text-xs uppercase tracking-[0.2em] text-[#8B8E94] py-2"
                   >
                     {l.label}
                   </a>
@@ -106,7 +106,7 @@ export default function Nav() {
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-full bg-[#7A1F1F] text-white text-sm font-medium"
+                  className="inline-flex items-center gap-2 mt-2 px-5 py-2.5 rounded-full bg-[#00D8FF] text-[#0B0D10] text-sm font-medium"
                 >
                   Me contacter →
                 </a>

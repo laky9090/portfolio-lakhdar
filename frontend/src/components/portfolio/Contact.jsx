@@ -41,19 +41,19 @@ export default function Contact() {
     <section
       id="contact"
       data-testid="contact-section"
-      className="relative py-24 md:py-32 border-t border-[#EDE9DF]"
+      className="relative py-24 md:py-32 border-t border-[#1A1D22]"
     >
       <div className="absolute inset-0 -z-10 dot-grid opacity-30" />
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
-            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#7A1F1F]">
+            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#00D8FF]">
               /07 — contact
             </div>
-            <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#141414] leading-[0.95]">
-              Parlons de votre <em className="not-italic text-[#7A1F1F]">prochain projet.</em>
+            <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#E8E8EA] leading-[0.95]">
+              Parlons de votre <em className="not-italic text-[#00D8FF]">prochain projet.</em>
             </h2>
-            <p className="mt-6 text-[#5C5C5C] text-base md:text-lg leading-relaxed">
+            <p className="mt-6 text-[#8B8E94] text-base md:text-lg leading-relaxed">
               Cadrage, audit, pilotage, mise en production — je réponds sous 24h ouvrées.
               Disponibilité immédiate pour mission freelance.
             </p>
@@ -133,14 +133,14 @@ export default function Contact() {
               </Field>
 
               <div className="flex items-center justify-between pt-2">
-                <p className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#8A8A8A]">
+                <p className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#6B6E74]">
                   Réponse sous 24h ouvrées
                 </p>
                 <button
                   type="submit"
                   data-testid="contact-submit-button"
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#7A1F1F] text-white font-medium hover:bg-[#5C1818] transition disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#00D8FF] text-[#0B0D10] font-medium hover:bg-[#33E0FF] transition disabled:opacity-60"
                 >
                   {loading ? (
                     <>
@@ -164,14 +164,14 @@ export default function Contact() {
 }
 
 const inputCls =
-  "w-full bg-transparent border-b border-[#E5E1D8] focus:border-[#7A1F1F] text-[#141414] text-base placeholder:text-[#A0A0A0] py-3 outline-none transition";
+  "w-full bg-transparent border-b border-[#232830] focus:border-[#00D8FF] text-[#E8E8EA] text-base placeholder:text-[#4A4D52] py-3 outline-none transition";
 
 function Field({ label, required, children }) {
   return (
     <label className="block">
-      <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#5C5C5C]">
+      <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#8B8E94]">
         {label}
-        {required && <span className="text-[#7A1F1F]"> *</span>}
+        {required && <span className="text-[#00D8FF]"> *</span>}
       </span>
       <div className="mt-1">{children}</div>
     </label>
@@ -181,18 +181,18 @@ function Field({ label, required, children }) {
 function ContactRow({ icon: Icon, label, value, href, testid, external }) {
   const content = (
     <>
-      <div className="h-11 w-11 rounded-xl border border-[#E5E1D8] grid place-items-center text-[#7A1F1F]">
+      <div className="h-11 w-11 rounded-xl border border-[#232830] grid place-items-center text-[#00D8FF]">
         <Icon size={18} strokeWidth={1.5} />
       </div>
       <div>
-        <div className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#8A8A8A]">
+        <div className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#6B6E74]">
           {label}
         </div>
-        <div className="text-[#141414] text-base">{value}</div>
+        <div className="text-[#E8E8EA] text-base">{value}</div>
       </div>
     </>
   );
-  const cls = "flex items-center gap-4 group hover:text-[#7A1F1F]";
+  const cls = "flex items-center gap-4 group hover:text-[#00D8FF]";
   if (href) {
     return (
       <a

@@ -7,8 +7,8 @@ export const PROFILE = {
   shortPitch:
     "8 ans à piloter des transformations IT complexes pour des grands groupes — Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.",
   contact: {
-    email: "contact@lakhdar-damar.fr",
-    phone: "+33 6 00 00 00 00",
+    email: "dhllaky@gmail.com",
+    phone: "07 53 77 03 20",
     linkedin: "https://www.linkedin.com/in/lakhdar-damar/",
     location: "Paris, Île-de-France · Remote/Hybride",
     availability: "Disponible pour mission freelance",
