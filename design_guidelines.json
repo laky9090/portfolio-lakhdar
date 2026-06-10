@@ -1,0 +1,154 @@
+{
+  "theme": "Dark Mode Premium Tech + Editorial Luxe Hybrid",
+  "archetype": "Archetype 5 (Luxury) mixed with Archetype 4 (Swiss & High-Contrast)",
+  "global_rules": {
+    "background": "Deep non-black dark background (#0A0A0C) with subtle film grain/noise overlay for a premium physical feel.",
+    "typography_strategy": "Editorial serif for massive, sophisticated headings. Clean sans-serif for readable body text. Monospace for technical data, metrics, and tech stack badges.",
+    "spacing": "Generous. Use 2x-3x normal spacing (e.g., py-24 or py-32 for sections) to let typography and metrics breathe."
+  },
+  "colors": {
+    "background": {
+      "base": "#0A0A0C",
+      "surface": "#121215",
+      "surface_elevated": "#1A1A1E",
+      "glass": "rgba(20, 20, 23, 0.6)"
+    },
+    "text": {
+      "primary": "#F8F8F8",
+      "secondary": "#A1A1AA",
+      "muted": "#71717A"
+    },
+    "accents": {
+      "primary": "#D4AF37",
+      "primary_hover": "#F3E5AB",
+      "tech_secondary": "#00E5FF",
+      "tech_secondary_muted": "rgba(0, 229, 255, 0.15)",
+      "border": "#27272A"
+    }
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cormorant Garamond, Playfair Display, or Fraunces (font-serif)",
+      "body": "Manrope, Inter, or Plus Jakarta Sans (font-sans)",
+      "mono": "JetBrains Mono, Space Mono (font-mono)"
+    },
+    "scales": {
+      "h1": "text-5xl md:text-6xl+ font-serif tracking-tight leading-none",
+      "h2": "text-4xl md:text-5xl font-serif tracking-tight",
+      "h3": "text-2xl md:text-3xl font-serif",
+      "h4": "text-lg md:text-xl font-sans font-medium",
+      "body": "text-base text-secondary font-sans leading-relaxed",
+      "overline": "text-xs font-mono uppercase tracking-[0.2em] text-primary"
+    }
+  },
+  "surface_strategies": {
+    "glassmorphism": "Use backdrop-blur-xl bg-[#121215]/60 with a 1px solid border of border-white/10. Apply to sticky headers, floating navs, and premium metric cards.",
+    "cards": "Matte finish. bg-surface with a delicate border-white/5. Hover state: subtle -translate-y-1 and a glow using shadow-[0_8px_32px_rgba(212,175,55,0.05)].",
+    "texture": "Implement a fixed screen-spanning div with a very low opacity noise/grain SVG to give the entire background a tangible, 'print' feel."
+  },
+  "spacing_and_layout": {
+    "section_padding": "py-24 md:py-32",
+    "container": "max-w-7xl mx-auto px-6 md:px-12",
+    "grid_bento": "grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
+  },
+  "components": {
+    "hero": {
+      "layout": "Asymmetric. Large editorial typography left-aligned, overlapping a dark abstract luxury texture. Massive impact.",
+      "content": "Overline (Senior IT Project Manager), H1 (Lakhdar DAMAR), Subtitle (8+ years steering multi-cloud & hybrid transformations for global enterprises), CTA buttons.",
+      "visuals": "Dark abstract satin/wave background. Subtle floating tech particles using framer-motion."
+    },
+    "about": {
+      "layout": "Two-column. sophisticated bio text on the left, professional portrait on the right.",
+      "style": "Text should mix serif headers with sans-serif body. Add a subtle 'signature' or handwritten touch for the name."
+    },
+    "metrics_pourquoi_me_recruter": {
+      "layout": "Grid of 4 to 6 large cards.",
+      "style": "Massive animated numeric counters in font-serif. Overlines in font-mono. e.g., '€4M', '4200+', '120', '8'. Use Champagne Gold for the numbers."
+    },
+    "expertise": {
+      "layout": "Bento Grid (Control Room style mixed with Editorial spacing).",
+      "style": "6 pillars. Use glassmorphism cards. Icons should be minimal, 1px stroke (Lucide or Phosphor). Hover states should reveal subtle electric cyan borders to reflect the 'tech' side."
+    },
+    "tech_stack": {
+      "layout": "Categorized flow or dense badge cluster.",
+      "style": "Badges with font-mono text. Background: tech_secondary_muted with tech_secondary 1px border. Extremely technical, crisp 'CLI' feel."
+    },
+    "experience_timeline": {
+      "layout": "Alternating timeline. Not a basic vertical line, but a 'Tracing Beam' inspired path (Aceternity UI style).",
+      "style": "Each node is a massive card. Include company logo, timeframe in mono, role in serif, and bullet points of key realizations in sans. The active line should glow cyan."
+    },
+    "certifications": {
+      "layout": "Minimal grid.",
+      "style": "Showcase PSM1, ITIL 4, AWS CCP, PRINCE2, Azure AZ-900 like premium credentials. Dark matte cards."
+    },
+    "testimonials": {
+      "layout": "Editorial blockquote slider or masonry.",
+      "style": "Massive serif quotation marks. High contrast text. Client names in mono."
+    },
+    "contact": {
+      "layout": "Two-column: Contact details (left) and functional Shadcn form (right).",
+      "style": "Form inputs should be raw, unstyled HTML/Tailwind customized Shadcn components. Border-bottom only (material style) or stark 1px complete border. Button: Solid Champagne Gold text-black."
+    }
+  },
+  "motion_and_interactions": {
+    "scroll": "Use Framer Motion for scroll-triggered staggered reveals on bento grids and timeline cards.",
+    "micro": "Hovering over tech stack badges slightly scales them up. Timelines have a glowing moving element. Numeric counters count up when scrolled into view.",
+    "testing": "All interactive elements MUST have data-testid attributes."
+  },
+  "image_urls": {
+    "hero_background": {
+      "url": "https://images.pexels.com/photos/31650443/pexels-photo-31650443.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Elegant dark abstract satin texture for hero background."
+    },
+    "about_portrait": {
+      "url": "https://images.pexels.com/photos/37148345/pexels-photo-37148345.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Professional portrait for the About section."
+    },
+    "expertise_background": {
+      "url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNDR8MHwxfHNlYXJjaHwxfHxkYXRhJTIwY2VudGVyJTIwZGFyayUyMG1vZGV8ZW58MHx8fHwxNzgxMDc3MzczfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Dark mode data center background. Use with heavy opacity mask."
+    },
+    "logos": [
+      {
+        "company": "AXA",
+        "url": "https://logo.clearbit.com/axa.com"
+      },
+      {
+        "company": "Sanofi",
+        "url": "https://logo.clearbit.com/sanofi.com"
+      },
+      {
+        "company": "Abeille Assurances",
+        "url": "https://logo.clearbit.com/abeille-assurances.fr"
+      },
+      {
+        "company": "BNP Paribas",
+        "url": "https://logo.clearbit.com/mabanque.bnpparibas"
+      },
+      {
+        "company": "TotalEnergies",
+        "url": "https://logo.clearbit.com/totalenergies.com"
+      },
+      {
+        "company": "Lacoste",
+        "url": "https://logo.clearbit.com/lacoste.com"
+      },
+      {
+        "company": "Corelia",
+        "url": "https://logo.clearbit.com/corelia.fr"
+      },
+      {
+        "company": "Gebo Cermex",
+        "url": "https://logo.clearbit.com/gebocermex.com"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "CRITICAL: Do not use placeholder images or text. Use the exact Clearbit logo URLs provided in `image_urls` for the timeline.",
+    "Implement the aesthetic as a true hybrid: background and structure must feel like a premium cybersecurity/cloud product, but typography (headings) MUST be editorial Serif to convey consulting luxury.",
+    "Use Framer Motion for scroll-linked animations, especially a glowing Tracing Beam for the experience timeline.",
+    "Implement an animated numeric counter for the 'Pourquoi me recruter' metrics.",
+    "Ensure all interactive elements and crucial data points include a `data-testid` attribute (e.g., `data-testid='contact-submit-button'`, `data-testid='metric-counter-axa'`).",
+    "Use Shadcn UI for the contact form, but heavily customize it to match the Dark Tech/Luxe theme (no default Vercel look)."
+  ]
+}
