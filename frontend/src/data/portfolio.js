@@ -205,7 +205,7 @@ export const CERTIFICATIONS = [
 ];
 
 export const FORMATIONS = [
-  { school: "IGS", title: "Master Management de Projet IT", year: "2018" },
+  { school: "IGS", title: "Master Systèmes & Réseaux — option Management de Projet IT", year: "2018" },
   { school: "UHA", title: "Licence Admin. & Sécurité Réseaux", year: "2016" },
   { school: "UHA", title: "DUT Réseaux & Télécoms", year: "2015" },
 ];

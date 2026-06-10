@@ -6,16 +6,16 @@ export default function Certifications() {
     <section
       id="certifications"
       data-testid="certifications-section"
-      className="relative py-24 md:py-32 border-t border-[#1A1A1E]"
+      className="relative py-24 md:py-32 border-t border-[#EDE9DF]"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-10 mb-14 items-end">
           <div className="lg:col-span-7">
-            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#D4AF37]">
+            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#7A1F1F]">
               /05 — formations & certifications
             </div>
-            <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-white leading-[0.95]">
-              Des credentials, <em className="not-italic text-[#D4AF37]">vérifiables.</em>
+            <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#141414] leading-[0.95]">
+              Des credentials, <em className="not-italic text-[#7A1F1F]">vérifiables.</em>
             </h2>
           </div>
         </div>
@@ -24,12 +24,12 @@ export default function Certifications() {
           {/* Certifications */}
           <div className="lg:col-span-2 glass rounded-2xl p-7 md:p-8" data-testid="certifications-card">
             <div className="flex items-center gap-3 mb-7">
-              <Award size={18} className="text-[#D4AF37]" />
-              <span className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#A1A1AA]">
+              <Award size={18} className="text-[#7A1F1F]" />
+              <span className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#5C5C5C]">
                 Certifications
               </span>
             </div>
-            <ul className="divide-y divide-[#1f1f23]">
+            <ul className="divide-y divide-[#E5E1D8]">
               {CERTIFICATIONS.map((c) => (
                 <li
                   key={c.name}
@@ -37,14 +37,14 @@ export default function Certifications() {
                   className="flex items-center justify-between py-4 group"
                 >
                   <div>
-                    <div className="font-serif-display text-xl text-white group-hover:text-[#D4AF37] transition">
+                    <div className="font-serif-display text-xl text-[#141414] group-hover:text-[#7A1F1F] transition">
                       {c.name}
                     </div>
-                    <div className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#71717A] mt-1">
+                    <div className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#8A8A8A] mt-1">
                       {c.body}
                     </div>
                   </div>
-                  <span className="font-mono-tech text-sm text-[#D4AF37]">{c.year}</span>
+                  <span className="font-mono-tech text-sm text-[#7A1F1F]">{c.year}</span>
                 </li>
               ))}
             </ul>
@@ -54,16 +54,16 @@ export default function Certifications() {
           <div className="space-y-6">
             <div className="glass rounded-2xl p-7" data-testid="formations-card">
               <div className="flex items-center gap-3 mb-6">
-                <GraduationCap size={18} className="text-[#D4AF37]" />
-                <span className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#A1A1AA]">
+                <GraduationCap size={18} className="text-[#7A1F1F]" />
+                <span className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#5C5C5C]">
                   Formation académique
                 </span>
               </div>
               <ul className="space-y-5">
                 {FORMATIONS.map((f) => (
                   <li key={f.title}>
-                    <div className="font-serif-display text-lg text-white leading-tight">{f.title}</div>
-                    <div className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#71717A] mt-1">
+                    <div className="font-serif-display text-lg text-[#141414] leading-tight">{f.title}</div>
+                    <div className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#8A8A8A] mt-1">
                       {f.school} · {f.year}
                     </div>
                   </li>
@@ -73,16 +73,16 @@ export default function Certifications() {
 
             <div className="glass rounded-2xl p-7" data-testid="languages-card">
               <div className="flex items-center gap-3 mb-6">
-                <Languages size={18} className="text-[#D4AF37]" />
-                <span className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#A1A1AA]">
+                <Languages size={18} className="text-[#7A1F1F]" />
+                <span className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#5C5C5C]">
                   Langues
                 </span>
               </div>
               <ul className="space-y-3">
                 {LANGUAGES.map((l) => (
                   <li key={l.lang} className="flex items-baseline justify-between">
-                    <span className="font-serif-display text-lg text-white">{l.lang}</span>
-                    <span className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#A1A1AA]">
+                    <span className="font-serif-display text-lg text-[#141414]">{l.lang}</span>
+                    <span className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#5C5C5C]">
                       {l.level}
                     </span>
                   </li>
