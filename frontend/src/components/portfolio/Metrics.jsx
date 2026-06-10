@@ -49,16 +49,16 @@ function MetricCard({ m }) {
       data-testid={`metric-card-${m.label.toLowerCase().replace(/\s+/g, "-")}`}
       className="group relative glass rounded-2xl p-7 md:p-8 overflow-hidden hover:-translate-y-1 transition-transform duration-500"
     >
-      <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-[#00D8FF]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-      <div className="font-mono-tech text-[10px] uppercase tracking-[0.25em] text-[#6B6E74]">
+      <div className="absolute -top-12 -right-12 h-32 w-32 rounded-full bg-[#0891B2]/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+      <div className="font-mono-tech text-[10px] uppercase tracking-[0.25em] text-[#8B8E94]">
         {m.caption}
       </div>
-      <div className="mt-4 font-serif-display text-[#00D8FF] text-5xl md:text-6xl leading-none tracking-tight">
+      <div className="mt-4 font-serif-display text-[#0891B2] text-5xl md:text-6xl leading-none tracking-tight">
         {prefix}
         {display}
         {suffix}
       </div>
-      <div className="mt-4 text-sm text-[#E8E8EA]/90">{m.label}</div>
+      <div className="mt-4 text-sm text-[#0B0D10]/90">{m.label}</div>
     </div>
   );
 }
@@ -68,19 +68,19 @@ export default function Metrics() {
     <section
       id="chiffres"
       data-testid="metrics-section"
-      className="relative py-24 md:py-32 border-t border-[#1A1D22]"
+      className="relative py-24 md:py-32 border-t border-[#EEF1F5]"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
           <div>
-            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#00D8FF]">
+            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">
               /01 — pourquoi me recruter
             </div>
-            <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#E8E8EA] leading-[0.95]">
-              Des résultats <em className="not-italic text-[#00D8FF]">mesurables.</em>
+            <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
+              Des résultats <em className="not-italic text-[#0891B2]">mesurables.</em>
             </h2>
           </div>
-          <p className="max-w-md text-[#8B8E94] text-base md:text-lg">
+          <p className="max-w-md text-[#5C616B] text-base md:text-lg">
             Des chiffres concrets issus de programmes réellement livrés — budgets, périmètres,
             volumes et niveaux d'exigence.
           </p>

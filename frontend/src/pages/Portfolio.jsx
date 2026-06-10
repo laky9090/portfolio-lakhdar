@@ -17,7 +17,7 @@ export default function Portfolio() {
   }, []);
 
   return (
-    <main data-testid="portfolio-page" className="grain bg-[#0B0D10] text-[#E8E8EA] min-h-screen relative">
+    <main data-testid="portfolio-page" className="grain bg-[#FFFFFF] text-[#0B0D10] min-h-screen relative">
       <Nav />
       <Hero />
       <About />
