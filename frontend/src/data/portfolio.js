@@ -37,7 +37,7 @@ export const PROFILE = {
 };
 
 export const METRICS = [
-  { value: "4M€", label: "Plus gros projet piloté", caption: "Séparation AVIVA FR ↔ UK" },
+  { value: "600k€", label: "Plus gros projet piloté", caption: "Séparation IT — AXA" },
   { value: "4200+", label: "Postes sécurisés", caption: "Déploiement MFA / EDR" },
   { value: "120", label: "Serveurs migrés", caption: "Décommissionnement & migrations" },
   { value: `${TOTAL_IT_YEARS}`, label: "Années dans l'IT", caption: `Depuis ${IT_CAREER_START_YEAR}`, note: `Dont ${PM_INFRA_YEARS} ans en pilotage IT Infra` },
@@ -123,7 +123,7 @@ export const EXPERIENCES = [
       "Migration 20 serveurs AIX 7.1 → 7.2 avec maintien de disponibilité.",
       "Projet ERP : mise en place SSO SAML v2 et VPN IPsec partenaires.",
     ],
-    tags: ["4M€", "Cyber", "MFA", "AIX"],
+    tags: ["AVIVA", "Cyber", "MFA", "AIX"],
   },
   {
     company: "Sanofi",

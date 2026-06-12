@@ -18,7 +18,7 @@ export default function About() {
                 <img
                   src={PROFILE.photo}
                   alt="Lakhdar DAMAR — Chef de Projet IT Infrastructure"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   loading="lazy"
                 />
                 <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#0B0D10]/55 to-transparent" />
