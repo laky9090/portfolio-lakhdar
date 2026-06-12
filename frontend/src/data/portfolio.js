@@ -228,8 +228,8 @@ export const LANGUAGES = [
 export const TESTIMONIALS = [
   {
     quote:
-      "Lakhdar a transformé un programme complexe en une trajectoire claire. Son alignement entre exigences sécurité et delivery a été décisif.",
-    name: "Directrice Programme",
+      "Lakhdar a transformé un projet complexe en une trajectoire claire. Son alignement entre exigences sécurité et delivery a été décisif.",
+    name: "Directrice de Programme",
     company: "Secteur Assurance",
   },
   {

@@ -88,7 +88,7 @@ export default function Hero() {
                 <div className="h-px bg-[#E4E7EB]" />
                 <Stat k={`${PM_INFRA_YEARS}+`} v="ans en pilotage IT Infra" />
                 <div className="h-px bg-[#E4E7EB]" />
-                <Stat k="4M€" v="plus gros programme livré" />
+                <Stat k="4M€" v="plus gros projet livré" />
                 <div className="h-px bg-[#E4E7EB]" />
                 <Stat k="7" v="secteurs régulés couverts" />
                 <div className="h-px bg-[#E4E7EB]" />

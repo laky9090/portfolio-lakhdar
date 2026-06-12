@@ -18,7 +18,7 @@ export default function Timeline() {
               {TOTAL_IT_YEARS} ans. <em className="not-italic text-[#0891B2]">{EXPERIENCES.length} terrains.</em>
             </h2>
             <p className="lg:col-span-5 text-[#5C616B] text-base md:text-lg">
-              Banque, assurance, pharma, industrie, retail. Des programmes On-Prem, Cloud et
+              Banque, assurance, pharma, industrie, retail. Des projets On-Prem, Cloud et
               hybrides — toujours en environnement réglementé ou international.
             </p>
           </div>

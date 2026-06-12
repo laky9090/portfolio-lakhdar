@@ -86,7 +86,7 @@ export default function Metrics() {
             </h2>
           </div>
           <p className="max-w-md text-[#5C616B] text-base md:text-lg">
-            Des chiffres concrets issus de programmes réellement livrés — budgets, périmètres,
+            Des chiffres concrets issus de projets réellement livrés — budgets, périmètres,
             volumes et niveaux d'exigence.
           </p>
         </div>

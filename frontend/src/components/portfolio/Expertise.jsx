@@ -20,7 +20,7 @@ export default function Expertise() {
           </div>
           <p className="lg:col-span-5 text-[#5C616B] text-base md:text-lg">
             Une méthode complète, de la définition du périmètre jusqu'au transfert au RUN — chaque
-            pilier est éprouvé sur des programmes critiques.
+            pilier est éprouvé sur des projets critiques au sein de programmes stratégiques.
           </p>
         </div>
 
