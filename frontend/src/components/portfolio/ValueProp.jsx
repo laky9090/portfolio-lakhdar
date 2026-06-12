@@ -41,7 +41,7 @@ export default function ValueProp() {
             </div>
 
             <p className="font-serif-display text-2xl md:text-3xl text-[#0B0D10] leading-tight">
-              Je m'aligne <em className="not-italic text-[#0891B2]">vite</em> sur vos process.
+              Je m'aligne <em className="not-italic text-[#0891B2]">vite</em> sur vos process
             </p>
 
             <p className="mt-4 text-[#5C616B] leading-relaxed">
@@ -76,7 +76,7 @@ export default function ValueProp() {
             </div>
 
             <p className="font-serif-display text-2xl md:text-3xl text-[#0B0D10] leading-tight">
-              J'arrive avec mon <em className="not-italic text-[#0891B2]">template Excel</em>.
+              J'arrive avec mon <em className="not-italic text-[#0891B2]">template Excel</em>
             </p>
 
             <p className="mt-4 text-[#5C616B] leading-relaxed">
