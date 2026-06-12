@@ -1,10 +1,11 @@
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Linkedin, Loader2, Send } from "lucide-react";
 import { useI18n } from "@/data/i18n";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+// Always call the same-origin Vercel function. Ignore any leftover
+// REACT_APP_BACKEND_URL that might still point to an old Emergent preview.
+const CONTACT_ENDPOINT = "/api/contact";
 
 export default function Contact() {
   const { t } = useI18n();
@@ -24,11 +25,27 @@ export default function Contact() {
     }
     setLoading(true);
     try {
-      await axios.post(`${API}/contact`, form);
+      const resp = await fetch(CONTACT_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      let data = null;
+      try { data = await resp.json(); } catch { /* non-JSON response */ }
+
+      if (!resp.ok) {
+        const detail = (data && data.detail) || `HTTP ${resp.status} ${resp.statusText || ""}`.trim();
+        console.error("Contact API error:", resp.status, detail, data);
+        toast.error(detail || u.error_generic);
+        return;
+      }
+
       toast.success(u.success);
       setForm({ name: "", email: "", company: "", subject: "", message: "" });
     } catch (err) {
-      const detail = err?.response?.data?.detail || u.error_generic;
+      console.error("Contact network error:", err);
+      const detail = (err && err.message) ? `Réseau : ${err.message}` : u.error_generic;
       toast.error(detail);
     } finally {
       setLoading(false);
