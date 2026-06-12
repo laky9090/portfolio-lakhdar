@@ -14,7 +14,7 @@ export const PROFILE = {
   name: "Lakhdar DAMAR",
   role: "Chef de Projet IT Infrastructure",
   tagline: "Multi-cloud · Hybride · Régulé",
-  shortPitch: `${TOTAL_IT_YEARS} ans dans l'IT, dont ${PM_INFRA_YEARS} ans en gestion de projet IT Infrastructure pour des grands groupes — Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.`,
+  shortPitch: `${TOTAL_IT_YEARS} ans dans l'IT, dont ${PM_INFRA_YEARS} ans en gestion de projet IT Infrastructure pour des grands groupes, Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.`,
   photo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/dma8jbex_JUD_6173a.jpg",
   contact: {
     email: "dhllaky@gmail.com",
@@ -39,7 +39,7 @@ export const PROFILE = {
 };
 
 export const METRICS = [
-  { value: "600k€", label: "Plus gros projet piloté", caption: "Séparation IT — AXA" },
+  { value: "600k€", label: "Plus gros projet piloté", caption: "Séparation IT, AXA" },
   { value: "4200+", label: "Postes sécurisés", caption: "Déploiement MFA / EDR" },
   { value: "120", label: "Serveurs migrés", caption: "Décommissionnement & migrations" },
   { value: `${TOTAL_IT_YEARS}`, label: "Années dans l'IT", caption: `Depuis ${IT_CAREER_START_YEAR}`, note: `Dont ${PM_INFRA_YEARS} ans en pilotage IT Infra` },
@@ -196,7 +196,7 @@ export const EXPERIENCES = [
       "International multi-pays · Coordination offshore Capgemini (Inde) et CGI (Maroc, Canada) · FR/EN.",
     highlights: [
       "Migration vers Azure : déploiement IaaS et extension multi-sites.",
-      "Projet drone — Raffinerie de Feyzin : pilotage drone sur Azure, infrastructure réseaux & flux sécurisés en milieu industriel sensible.",
+      "Projet drone, Raffinerie de Feyzin : pilotage drone sur Azure, infrastructure réseaux & flux sécurisés en milieu industriel sensible.",
       "Socle infrastructure décisionnelle : flux CFT, Job Control-M et conteneurs Docker sur Azure.",
       "Extension infrastructure multi-pays : serveurs applicatifs et BDD sur plusieurs entités.",
     ],
@@ -207,7 +207,7 @@ export const EXPERIENCES = [
     logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/8l8ubljw_Gebo_Cermex_logo.png",
     period: "Sep. 2015 – Août 2016",
     duration: "1 an",
-    role: "Apprenti Réseaux — équipe Remote Access",
+    role: "Apprenti Réseaux, équipe Remote Access",
     context: "Industriel international · FR/EN.",
     highlights: [
       "Configuration VPN Fortinet 40C : déploiements clients internationaux.",
@@ -228,7 +228,7 @@ export const CERTIFICATIONS = [
 ];
 
 export const FORMATIONS = [
-  { school: "IGS", title: "Master Systèmes & Réseaux — option Management de Projet IT", year: "2018" },
+  { school: "IGS", title: "Master Systèmes & Réseaux, option Management de Projet IT", year: "2018" },
   { school: "UHA", title: "Licence Admin. & Sécurité Réseaux", year: "2016" },
   { school: "UHA", title: "DUT Réseaux & Télécoms", year: "2015" },
 ];
