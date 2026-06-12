@@ -105,23 +105,34 @@ module.exports = async function handler(req, res) {
   } catch (err) {
     return res.status(400).json({ detail: "Invalid JSON body" });
   }
-  const { name, email, company, subject, message } = body || {};
+  const raw = body || {};
+  const trim = (v) => (typeof v === "string" ? v.trim() : v);
+  const name = trim(raw.name);
+  const email = trim(raw.email);
+  const message = trim(raw.message);
+  const company = raw.company ? trim(raw.company) : null;
+  const subject = raw.subject ? trim(raw.subject) : null;
 
-  // Validation
-  if (!name || typeof name !== "string" || name.length < 1 || name.length > 120) {
-    return res.status(422).json({ detail: "Invalid name" });
-  }
-  if (!email || typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return res.status(422).json({ detail: "Invalid email" });
-  }
-  if (!message || typeof message !== "string" || message.length < 5 || message.length > 4000) {
-    return res.status(422).json({ detail: "Invalid message" });
-  }
-  if (company != null && (typeof company !== "string" || company.length > 160)) {
-    return res.status(422).json({ detail: "Invalid company" });
-  }
-  if (subject != null && (typeof subject !== "string" || subject.length > 200)) {
-    return res.status(422).json({ detail: "Invalid subject" });
+  // Validation with per-field error messages
+  const errors = {};
+  if (!name) errors.name = "Le nom est obligatoire.";
+  else if (typeof name !== "string") errors.name = "Le nom est invalide.";
+  else if (name.length > 120) errors.name = "Le nom est trop long (max 120 caractères).";
+
+  if (!email) errors.email = "L'email est obligatoire.";
+  else if (typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) errors.email = "L'email n'a pas un format valide.";
+
+  if (!message) errors.message = "Le message est obligatoire.";
+  else if (typeof message !== "string") errors.message = "Le message est invalide.";
+  else if (message.length < 5) errors.message = "Le message est trop court (au moins 5 caractères).";
+  else if (message.length > 4000) errors.message = "Le message est trop long (max 4000 caractères).";
+
+  if (company && (typeof company !== "string" || company.length > 160)) errors.company = "Le nom de société est trop long (max 160 caractères).";
+  if (subject && (typeof subject !== "string" || subject.length > 200)) errors.subject = "Le sujet est trop long (max 200 caractères).";
+
+  if (Object.keys(errors).length) {
+    const detail = Object.values(errors).join(" ");
+    return res.status(422).json({ detail, errors });
   }
 
   if (!RESEND_API_KEY) {
@@ -135,11 +146,11 @@ module.exports = async function handler(req, res) {
     id: (typeof crypto !== "undefined" && crypto.randomUUID)
       ? crypto.randomUUID()
       : `m_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
-    name: String(name).trim(),
-    email: String(email).trim(),
-    company: company ? String(company).trim() : null,
-    subject: subject ? String(subject).trim() : null,
-    message: String(message).trim(),
+    name,
+    email,
+    company: company || null,
+    subject: subject || null,
+    message,
     created_at: new Date().toISOString(),
   };
 

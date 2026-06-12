@@ -19,8 +19,15 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
-    if (!form.name || !form.email || !form.message) {
+    const name = form.name.trim();
+    const email = form.email.trim();
+    const message = form.message.trim();
+    if (!name || !email || !message) {
       toast.error(u.error_fill);
+      return;
+    }
+    if (message.length < 5) {
+      toast.error(t.lang === "en" ? "Message too short (at least 5 characters)." : "Le message est trop court (au moins 5 caractères).");
       return;
     }
     setLoading(true);
@@ -28,7 +35,13 @@ export default function Contact() {
       const resp = await fetch(CONTACT_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          name,
+          email,
+          company: form.company.trim() || undefined,
+          subject: form.subject.trim() || undefined,
+          message,
+        }),
       });
 
       let data = null;
