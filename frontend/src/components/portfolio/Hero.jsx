@@ -80,9 +80,9 @@ export default function Hero() {
 
           <div className="lg:col-span-4">
             <div className="glass rounded-2xl p-6 md:p-8" data-testid="hero-stats-card">
-              <div className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#0891B2]">
-                /signal
-              </div>
+              <span className="font-mono-tech text-[11px] uppercase tracking-[0.22em] text-[#0B0D10] bg-[#0891B2]/20 px-2 py-1 rounded">
+                en bref
+              </span>
               <div className="mt-4 space-y-5">
                 <Stat k={`${TOTAL_IT_YEARS}+`} v="ans dans l'IT" />
                 <div className="h-px bg-[#E4E7EB]" />
