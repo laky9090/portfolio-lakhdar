@@ -33,8 +33,11 @@ Pousse ce dépôt sur ton compte GitHub (`laky9090`) via le bouton "Save to GitH
 | `RESEND_API_KEY` | `re_R9wS3TPe_AzXxu7h3CnxcnMosaqssBMpK` | Ta clé Resend |
 | `NOTIFY_EMAIL` | `dhllaky@gmail.com` | Adresse qui reçoit les messages |
 | `SENDER_EMAIL` | `onboarding@resend.dev` | Optionnel. Tu pourras le changer en `contact@tondomaine.fr` après avoir vérifié ton domaine sur Resend |
+| `REACT_APP_CAL_URL` | `https://cal.com/ton-slug/15min` | Optionnel. Si absent, le bouton "Réserver un call" scrolle vers la section contact |
 
 Coche `Production`, `Preview`, `Development` pour chaque variable.
+
+> **Important** : `REACT_APP_CAL_URL` est lue au moment du `yarn build`. Si tu changes cette variable après coup, tu dois **redéployer** (Vercel → Deployments → Redeploy) pour qu'elle soit prise en compte.
 
 ### 4. Déployer
 

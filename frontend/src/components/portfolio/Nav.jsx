@@ -87,8 +87,9 @@ export default function Nav() {
             </a>
             <a
               href={t.profile.contact.calUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...(t.profile.contact.calUrl.startsWith("http")
+                ? { target: "_blank", rel: "noopener noreferrer" }
+                : {})}
               data-testid="nav-cta-cal"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0891B2] text-white font-medium text-sm hover:bg-[#0E7490] transition"
             >

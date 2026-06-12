@@ -2,11 +2,8 @@
   "name": "lakhdar-portfolio",
   "version": "1.0.0",
   "private": true,
-  "description": "Lakhdar DAMAR - IT Infrastructure Project Manager portfolio. Vercel deployment with React frontend + serverless contact function.",
+  "description": "Lakhdar DAMAR - IT Infrastructure Project Manager portfolio. Vercel deployment with React frontend and a single serverless function. No dependencies (uses native fetch).",
   "engines": {
     "node": ">=18"
-  },
-  "dependencies": {
-    "resend": "^3.5.0"
   }
 }

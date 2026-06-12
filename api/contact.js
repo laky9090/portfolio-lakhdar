@@ -1,14 +1,24 @@
-const { Resend } = require("resend");
+function getEnv() {
+  return {
+    RESEND_API_KEY: process.env.RESEND_API_KEY,
+    NOTIFY_EMAIL: process.env.NOTIFY_EMAIL,
+    SENDER_EMAIL: process.env.SENDER_EMAIL || "onboarding@resend.dev",
+  };
+}
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function setCors(res) {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+}
 
-const SENDER_EMAIL = process.env.SENDER_EMAIL || "onboarding@resend.dev";
-const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL;
+function safe(s) {
+  return String(s == null ? "" : s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
+}
 
 function buildHtml(msg) {
-  const safe = (s) => String(s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
   const company = msg.company
-    ? `<tr><td style="padding:6px 0;color:#5C616B;font-family:Arial,sans-serif;font-size:13px;">Société</td><td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#0B0D10;">${safe(msg.company)}</td></tr>`
+    ? `<tr><td style="padding:6px 0;color:#5C616B;font-family:Arial,sans-serif;font-size:13px;">Societe</td><td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#0B0D10;">${safe(msg.company)}</td></tr>`
     : "";
   const subject = msg.subject
     ? `<tr><td style="padding:6px 0;color:#5C616B;font-family:Arial,sans-serif;font-size:13px;">Sujet</td><td style="padding:6px 0;font-family:Arial,sans-serif;font-size:14px;color:#0B0D10;">${safe(msg.subject)}</td></tr>`
@@ -44,57 +54,124 @@ function buildHtml(msg) {
   `;
 }
 
+async function readBody(req) {
+  // Vercel auto-parses JSON when Content-Type is application/json,
+  // but we add a manual fallback for raw streams.
+  if (req.body && typeof req.body === "object") return req.body;
+  if (typeof req.body === "string" && req.body.length) {
+    try { return JSON.parse(req.body); } catch { /* fall through */ }
+  }
+  return await new Promise((resolve, reject) => {
+    let data = "";
+    req.on("data", (chunk) => { data += chunk; });
+    req.on("end", () => {
+      if (!data) return resolve({});
+      try { resolve(JSON.parse(data)); } catch (e) { reject(e); }
+    });
+    req.on("error", reject);
+  });
+}
+
 module.exports = async function handler(req, res) {
+  setCors(res);
+  const { RESEND_API_KEY, NOTIFY_EMAIL, SENDER_EMAIL } = getEnv();
+
+  if (req.method === "OPTIONS") {
+    return res.status(204).end();
+  }
+
+  // Diagnostics endpoint: GET /api/contact returns env var status (no values)
+  if (req.method === "GET") {
+    return res.status(200).json({
+      ok: true,
+      message: "Contact endpoint ready",
+      env: {
+        RESEND_API_KEY: RESEND_API_KEY ? "set" : "missing",
+        NOTIFY_EMAIL: NOTIFY_EMAIL ? "set" : "missing",
+        SENDER_EMAIL: SENDER_EMAIL ? "set" : "missing",
+      },
+    });
+  }
+
   if (req.method !== "POST") {
-    res.setHeader("Allow", "POST");
+    res.setHeader("Allow", "POST, GET, OPTIONS");
     return res.status(405).json({ detail: "Method not allowed" });
   }
 
-  const body = typeof req.body === "string" ? JSON.parse(req.body || "{}") : (req.body || {});
-  const { name, email, company, subject, message } = body;
+  // Body parsing
+  let body;
+  try {
+    body = await readBody(req);
+  } catch (err) {
+    return res.status(400).json({ detail: "Invalid JSON body" });
+  }
+  const { name, email, company, subject, message } = body || {};
 
+  // Validation
   if (!name || typeof name !== "string" || name.length < 1 || name.length > 120) {
     return res.status(422).json({ detail: "Invalid name" });
   }
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  if (!email || typeof email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(422).json({ detail: "Invalid email" });
   }
   if (!message || typeof message !== "string" || message.length < 5 || message.length > 4000) {
     return res.status(422).json({ detail: "Invalid message" });
   }
-  if (company && (typeof company !== "string" || company.length > 160)) {
+  if (company != null && (typeof company !== "string" || company.length > 160)) {
     return res.status(422).json({ detail: "Invalid company" });
   }
-  if (subject && (typeof subject !== "string" || subject.length > 200)) {
+  if (subject != null && (typeof subject !== "string" || subject.length > 200)) {
     return res.status(422).json({ detail: "Invalid subject" });
   }
-  if (!process.env.RESEND_API_KEY) {
-    return res.status(500).json({ detail: "RESEND_API_KEY not configured" });
+
+  if (!RESEND_API_KEY) {
+    return res.status(500).json({ detail: "Server misconfigured: RESEND_API_KEY missing" });
   }
   if (!NOTIFY_EMAIL) {
-    return res.status(500).json({ detail: "NOTIFY_EMAIL not configured" });
+    return res.status(500).json({ detail: "Server misconfigured: NOTIFY_EMAIL missing" });
   }
 
   const msg = {
-    id: typeof crypto !== "undefined" && crypto.randomUUID ? crypto.randomUUID() : Date.now().toString(),
-    name, email,
-    company: company || null,
-    subject: subject || null,
-    message,
+    id: (typeof crypto !== "undefined" && crypto.randomUUID)
+      ? crypto.randomUUID()
+      : `m_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
+    name: String(name).trim(),
+    email: String(email).trim(),
+    company: company ? String(company).trim() : null,
+    subject: subject ? String(subject).trim() : null,
+    message: String(message).trim(),
     created_at: new Date().toISOString(),
   };
 
   try {
-    await resend.emails.send({
+    const payload = {
       from: `Portfolio Lakhdar DAMAR <${SENDER_EMAIL}>`,
       to: [NOTIFY_EMAIL],
-      reply_to: email,
-      subject: `Nouveau message - ${name}${company ? ` (${company})` : ""}`,
+      reply_to: msg.email,
+      subject: `Nouveau message - ${msg.name}${msg.company ? ` (${msg.company})` : ""}`,
       html: buildHtml(msg),
+    };
+
+    const resp = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
     });
-    return res.status(200).json(msg);
+
+    const data = await resp.json().catch(() => ({}));
+
+    if (!resp.ok) {
+      console.error("Resend API error:", resp.status, data);
+      const reason = (data && (data.message || data.name)) || `HTTP ${resp.status}`;
+      return res.status(502).json({ detail: `Resend: ${reason}` });
+    }
+
+    return res.status(200).json({ ...msg, resend_id: data && data.id });
   } catch (err) {
-    console.error("Resend send failed:", err);
-    return res.status(500).json({ detail: "Unable to send message" });
+    console.error("Resend send threw:", err && err.message ? err.message : err);
+    return res.status(500).json({ detail: `Unable to send message: ${err && err.message ? err.message : "unknown error"}` });
   }
 };

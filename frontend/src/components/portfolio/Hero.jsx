@@ -51,8 +51,9 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap items-center gap-3">
               <a
                 href={profile.contact.calUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...(profile.contact.calUrl.startsWith("http")
+                  ? { target: "_blank", rel: "noopener noreferrer" }
+                  : {})}
                 data-testid="hero-cta-cal"
                 className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0891B2] text-white font-medium hover:bg-[#0E7490] transition"
               >

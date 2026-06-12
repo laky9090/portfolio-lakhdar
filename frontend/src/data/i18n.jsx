@@ -16,7 +16,7 @@ const PM_INFRA_YEARS = years(PM_INFRA_START_YEAR);
 
 const PHOTO = "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/dma8jbex_JUD_6173a.jpg";
 const CV_URL = "https://customer-assets.emergentagent.com/job_101a3f2c-482b-4382-9291-93afae4d9b77/artifacts/br868tb6_CV_Lakhdar_DAMAR.html";
-const CAL_URL = "https://cal.com/lakhdar-damar/15min";
+const CAL_URL = process.env.REACT_APP_CAL_URL || "#contact";
 const LINKEDIN = "https://www.linkedin.com/in/lakhdar-damar/";
 
 const COMPANY_BASE = {
