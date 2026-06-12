@@ -1,0 +1,11 @@
+# Emergent platform leftovers
+tests/
+scripts/
+.emergent/
+memory/
+design_guidelines.json
+test_reports/
+
+# Node
+node_modules/
+*.log
