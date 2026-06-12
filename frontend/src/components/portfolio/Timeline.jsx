@@ -1,7 +1,11 @@
-import { EXPERIENCES, TOTAL_IT_YEARS } from "@/data/portfolio";
+import { useI18n } from "@/data/i18n";
 import { getMark } from "@/data/companyMarks";
 
 export default function Timeline() {
+  const { t } = useI18n();
+  const u = t.ui.timeline;
+  const experiences = t.experiences;
+
   return (
     <section
       id="parcours"
@@ -10,70 +14,49 @@ export default function Timeline() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="mb-16">
-          <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">
-            /05 — parcours
-          </div>
+          <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">{u.kicker}</div>
           <div className="grid lg:grid-cols-12 gap-10 mt-4 items-end">
             <h2 className="lg:col-span-7 font-serif-display text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              {TOTAL_IT_YEARS} ans · <em className="not-italic text-[#0891B2]">{EXPERIENCES.length} terrains</em>
+              {u.h1_a}
+              <em className="not-italic text-[#0891B2]">
+                {experiences.length}
+                {u.h1_em_suffix}
+              </em>
             </h2>
-            <p className="lg:col-span-5 text-[#5C616B] text-base md:text-lg">
-              Banque, assurance, pharma, industrie, retail. Des projets On-Prem, Cloud et
-              hybrides — toujours en environnement réglementé ou international.
-            </p>
+            <p className="lg:col-span-5 text-[#5C616B] text-base md:text-lg">{u.lead}</p>
           </div>
         </div>
 
         <div className="relative">
-          {/* Vertical line */}
           <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px -translate-x-1/2 timeline-line" />
 
           <div className="space-y-12 md:space-y-16">
-            {EXPERIENCES.map((exp, i) => {
+            {experiences.map((exp, i) => {
               const isLeft = i % 2 === 0;
               const mark = getMark(exp.company);
               return (
                 <article
-                  key={exp.company}
+                  key={i}
                   data-testid={`timeline-item-${i}`}
                   className="relative md:grid md:grid-cols-2 md:gap-12 items-start"
                 >
-                  {/* Node */}
                   <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-7 z-10">
                     <div className="h-3.5 w-3.5 rounded-full bg-[#0891B2] glow-gold" />
                   </div>
 
-                  {/* Card */}
-                  <div
-                    className={`pl-12 md:pl-0 ${
-                      isLeft ? "md:pr-12 md:text-right" : "md:col-start-2 md:pl-12"
-                    }`}
-                  >
+                  <div className={`pl-12 md:pl-0 ${isLeft ? "md:pr-12 md:text-right" : "md:col-start-2 md:pl-12"}`}>
                     <div className="rounded-2xl border border-[#E4E7EB] bg-[#F7F8FA] p-7 md:p-8 hover:border-[#0891B2]/40 transition group">
-                      <div
-                        className={`flex items-center gap-4 ${
-                          isLeft ? "md:justify-end md:flex-row-reverse" : ""
-                        }`}
-                      >
+                      <div className={`flex items-center gap-4 ${isLeft ? "md:justify-end md:flex-row-reverse" : ""}`}>
                         {exp.logo ? (
                           <div className="h-14 w-14 rounded-xl bg-white p-2 grid place-items-center shrink-0 ring-1 ring-[#E4E7EB] shadow-sm">
-                            <img
-                              src={exp.logo}
-                              alt={exp.company}
-                              className="max-h-full max-w-full object-contain"
-                              loading="lazy"
-                            />
+                            <img src={exp.logo} alt={exp.company} className="max-h-full max-w-full object-contain" loading="lazy" />
                           </div>
                         ) : (
                           <div
                             className="h-14 w-14 rounded-xl grid place-items-center shrink-0 shadow-sm ring-1 ring-[#E4E7EB]"
                             style={{ backgroundColor: mark.bg, color: mark.fg }}
-                            aria-label={exp.company}
                           >
-                            <span
-                              className="text-[15px] tracking-tight"
-                              style={{ fontWeight: mark.weight, fontFamily: "Inter, sans-serif" }}
-                            >
+                            <span className="text-[15px] tracking-tight" style={{ fontWeight: mark.weight, fontFamily: "Inter, sans-serif" }}>
                               {mark.abbr}
                             </span>
                           </div>
@@ -88,53 +71,30 @@ export default function Timeline() {
                         </div>
                       </div>
 
-                      <div
-                        className={`mt-4 text-sm text-[#0891B2] ${
-                          isLeft ? "md:text-right" : ""
-                        }`}
-                      >
+                      <div className={`mt-4 text-sm text-[#0891B2] ${isLeft ? "md:text-right" : ""}`}>
                         {exp.role}
                       </div>
 
-                      <p
-                        className={`mt-3 text-sm text-[#5C616B] leading-relaxed ${
-                          isLeft ? "md:text-right" : ""
-                        }`}
-                      >
+                      <p className={`mt-3 text-sm text-[#5C616B] leading-relaxed ${isLeft ? "md:text-right" : ""}`}>
                         {exp.context}
                       </p>
 
-                      <ul
-                        className={`mt-5 space-y-2.5 text-sm text-[#0B0D10]/90 ${
-                          isLeft ? "md:text-right" : ""
-                        }`}
-                      >
+                      <ul className={`mt-5 space-y-2.5 text-sm text-[#0B0D10]/90 ${isLeft ? "md:text-right" : ""}`}>
                         {exp.highlights.map((h, hi) => (
-                          <li
-                            key={hi}
-                            className={`flex gap-2.5 ${
-                              isLeft ? "md:flex-row-reverse" : ""
-                            }`}
-                          >
-                            <span
-                              className={`mt-2 h-1 w-1 rounded-full bg-[#0891B2] shrink-0`}
-                            />
+                          <li key={hi} className={`flex gap-2.5 ${isLeft ? "md:flex-row-reverse" : ""}`}>
+                            <span className="mt-2 h-1 w-1 rounded-full bg-[#0891B2] shrink-0" />
                             <span className="leading-relaxed">{h}</span>
                           </li>
                         ))}
                       </ul>
 
-                      <div
-                        className={`mt-5 flex flex-wrap gap-2 ${
-                          isLeft ? "md:justify-end" : ""
-                        }`}
-                      >
-                        {exp.tags.map((t) => (
+                      <div className={`mt-5 flex flex-wrap gap-2 ${isLeft ? "md:justify-end" : ""}`}>
+                        {exp.tags.map((tag) => (
                           <span
-                            key={t}
+                            key={tag}
                             className="font-mono-tech text-[10px] uppercase tracking-[0.18em] px-2.5 py-1 rounded-full border border-[#E4E7EB] text-[#5C616B]"
                           >
-                            {t}
+                            {tag}
                           </span>
                         ))}
                       </div>

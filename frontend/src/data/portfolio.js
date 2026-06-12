@@ -22,6 +22,8 @@ export const PROFILE = {
     linkedin: "https://www.linkedin.com/in/lakhdar-damar/",
     location: "Paris, Île-de-France · Remote/Hybride",
     availability: "Contactez-moi pour mes disponibilités",
+    calUrl: "https://cal.com/lakhdar-damar/15min",
+    cvUrl: "https://customer-assets.emergentagent.com/job_101a3f2c-482b-4382-9291-93afae4d9b77/artifacts/br868tb6_CV_Lakhdar_DAMAR.html",
   },
   company: {
     name: "LAKY",

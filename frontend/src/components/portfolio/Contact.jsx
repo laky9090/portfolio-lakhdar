@@ -2,18 +2,16 @@ import { useState } from "react";
 import axios from "axios";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Linkedin, Loader2, Send } from "lucide-react";
-import { PROFILE } from "@/data/portfolio";
+import { useI18n } from "@/data/i18n";
 
 const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
 
 export default function Contact() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    company: "",
-    subject: "",
-    message: "",
-  });
+  const { t } = useI18n();
+  const u = t.ui.contact;
+  const profile = t.profile;
+
+  const [form, setForm] = useState({ name: "", email: "", company: "", subject: "", message: "" });
   const [loading, setLoading] = useState(false);
 
   const handle = (k) => (e) => setForm((s) => ({ ...s, [k]: e.target.value }));
@@ -21,16 +19,16 @@ export default function Contact() {
   const submit = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) {
-      toast.error("Merci de remplir nom, email et message.");
+      toast.error(u.error_fill);
       return;
     }
     setLoading(true);
     try {
       await axios.post(`${API}/contact`, form);
-      toast.success("Message envoyé. Je vous réponds sous 24h.");
+      toast.success(u.success);
       setForm({ name: "", email: "", company: "", subject: "", message: "" });
     } catch (err) {
-      const detail = err?.response?.data?.detail || "Une erreur est survenue, réessayez.";
+      const detail = err?.response?.data?.detail || u.error_generic;
       toast.error(detail);
     } finally {
       setLoading(false);
@@ -47,125 +45,77 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
-            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">
-              /08 — contact
-            </div>
+            <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">{u.kicker}</div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              Parlons de votre <em className="not-italic text-[#0891B2]">prochain projet</em>
+              {u.h1a}
+              <em className="not-italic text-[#0891B2]">{u.h1b}</em>
             </h2>
-            <p className="mt-6 text-[#5C616B] text-base md:text-lg leading-relaxed">
-              Cadrage, audit, pilotage, mise en production — je réponds sous 24h ouvrées.
-              Disponibilité immédiate ou avec un préavis d'un mois. Contactez-moi pour en savoir plus.
-            </p>
+            <p className="mt-6 text-[#5C616B] text-base md:text-lg leading-relaxed">{u.lead}</p>
 
             <div
               className="mt-6 inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-[#E4E7EB] bg-[#F7F8FA]"
               data-testid="contact-company-badge"
             >
               <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#0891B2]">
-                Structure
+                {u.structureLabel}
               </span>
               <span className="font-serif-display text-sm text-[#0B0D10]">
-                {PROFILE.company.name} · {PROFILE.company.form}
+                {profile.company.name} · {profile.company.form}
               </span>
-              <span className="font-mono-tech text-[10px] text-[#8B8E94]">
-                SIRET {PROFILE.company.siret}
-              </span>
+              <span className="font-mono-tech text-[10px] text-[#8B8E94]">SIRET {profile.company.siret}</span>
             </div>
 
             <div className="mt-10 space-y-5">
-              <ContactRow icon={Mail} label="Email" value={PROFILE.contact.email} href={`mailto:${PROFILE.contact.email}`} testid="contact-email" />
-              <ContactRow icon={Phone} label="Téléphone" value={PROFILE.contact.phone} href={`tel:${PROFILE.contact.phone.replace(/\s/g, "")}`} testid="contact-phone" />
-              <ContactRow icon={Linkedin} label="LinkedIn" value="lakhdar-damar" href={PROFILE.contact.linkedin} testid="contact-linkedin" external />
-              <ContactRow icon={MapPin} label="Localisation" value={PROFILE.contact.location} testid="contact-location" />
+              <ContactRow icon={Mail} label={u.ico.email} value={profile.contact.email} href={`mailto:${profile.contact.email}`} testid="contact-email" />
+              <ContactRow icon={Phone} label={u.ico.phone} value={profile.contact.phone} href={`tel:${profile.contact.phone.replace(/\s/g, "")}`} testid="contact-phone" />
+              <ContactRow icon={Linkedin} label={u.ico.linkedin} value="lakhdar-damar" href={profile.contact.linkedin} testid="contact-linkedin" external />
+              <ContactRow icon={MapPin} label={u.ico.location} value={profile.contact.location} testid="contact-location" />
             </div>
           </div>
 
           <div className="lg:col-span-7">
-            <form
-              onSubmit={submit}
-              data-testid="contact-form"
-              className="glass rounded-2xl p-7 md:p-10 space-y-5"
-            >
+            <form onSubmit={submit} data-testid="contact-form" className="glass rounded-2xl p-7 md:p-10 space-y-5">
               <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Nom" required>
-                  <input
-                    data-testid="contact-input-name"
-                    type="text"
-                    value={form.name}
-                    onChange={handle("name")}
-                    placeholder="Votre nom"
-                    className={inputCls}
-                    required
-                  />
+                <Field label={u.field_name} required>
+                  <input data-testid="contact-input-name" type="text" value={form.name} onChange={handle("name")} placeholder={u.ph_name} className={inputCls} required />
                 </Field>
-                <Field label="Email" required>
-                  <input
-                    data-testid="contact-input-email"
-                    type="email"
-                    value={form.email}
-                    onChange={handle("email")}
-                    placeholder="vous@entreprise.com"
-                    className={inputCls}
-                    required
-                  />
+                <Field label={u.field_email} required>
+                  <input data-testid="contact-input-email" type="email" value={form.email} onChange={handle("email")} placeholder={u.ph_email} className={inputCls} required />
                 </Field>
               </div>
 
               <div className="grid md:grid-cols-2 gap-5">
-                <Field label="Société">
-                  <input
-                    data-testid="contact-input-company"
-                    type="text"
-                    value={form.company}
-                    onChange={handle("company")}
-                    placeholder="Votre entreprise"
-                    className={inputCls}
-                  />
+                <Field label={u.field_company}>
+                  <input data-testid="contact-input-company" type="text" value={form.company} onChange={handle("company")} placeholder={u.ph_company} className={inputCls} />
                 </Field>
-                <Field label="Sujet">
-                  <input
-                    data-testid="contact-input-subject"
-                    type="text"
-                    value={form.subject}
-                    onChange={handle("subject")}
-                    placeholder="Mission, audit, etc."
-                    className={inputCls}
-                  />
+                <Field label={u.field_subject}>
+                  <input data-testid="contact-input-subject" type="text" value={form.subject} onChange={handle("subject")} placeholder={u.ph_subject} className={inputCls} />
                 </Field>
               </div>
 
-              <Field label="Message" required>
-                <textarea
-                  data-testid="contact-input-message"
-                  rows={6}
-                  value={form.message}
-                  onChange={handle("message")}
-                  placeholder="Contexte, périmètre, deadline…"
-                  className={`${inputCls} resize-none`}
-                  required
-                />
+              <Field label={u.field_message} required>
+                <textarea data-testid="contact-input-message" rows={6} value={form.message} onChange={handle("message")} placeholder={u.ph_message} className={`${inputCls} resize-none`} required />
               </Field>
 
               <div className="flex items-center justify-between pt-2">
                 <p className="font-mono-tech text-[11px] uppercase tracking-[0.2em] text-[#8B8E94]">
-                  Réponse sous 24h ouvrées
+                  {u.response_24h}
                 </p>
                 <button
                   type="submit"
                   data-testid="contact-submit-button"
                   disabled={loading}
-                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0891B2] text-white font-medium hover:bg-[#06B6D4] transition disabled:opacity-60"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#0891B2] text-white font-medium hover:bg-[#0E7490] transition disabled:opacity-60"
                 >
                   {loading ? (
                     <>
                       <Loader2 size={16} className="animate-spin" />
-                      Envoi…
+                      {u.sending}
                     </>
                   ) : (
                     <>
                       <Send size={15} />
-                      Envoyer le message
+                      {u.send}
                     </>
                   )}
                 </button>
@@ -200,9 +150,7 @@ function ContactRow({ icon: Icon, label, value, href, testid, external }) {
         <Icon size={18} strokeWidth={1.5} />
       </div>
       <div>
-        <div className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#8B8E94]">
-          {label}
-        </div>
+        <div className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#8B8E94]">{label}</div>
         <div className="text-[#0B0D10] text-base">{value}</div>
       </div>
     </>
@@ -210,13 +158,7 @@ function ContactRow({ icon: Icon, label, value, href, testid, external }) {
   const cls = "flex items-center gap-4 group hover:text-[#0891B2]";
   if (href) {
     return (
-      <a
-        href={href}
-        data-testid={testid}
-        target={external ? "_blank" : undefined}
-        rel={external ? "noopener noreferrer" : undefined}
-        className={cls}
-      >
+      <a href={href} data-testid={testid} target={external ? "_blank" : undefined} rel={external ? "noopener noreferrer" : undefined} className={cls}>
         {content}
       </a>
     );

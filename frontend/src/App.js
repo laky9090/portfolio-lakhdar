@@ -2,15 +2,18 @@ import "@/App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Portfolio from "@/pages/Portfolio";
 import { Toaster } from "@/components/ui/sonner";
+import { I18nProvider } from "@/data/i18n";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Portfolio />} />
-        </Routes>
-      </BrowserRouter>
+      <I18nProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Portfolio />} />
+          </Routes>
+        </BrowserRouter>
+      </I18nProvider>
       <Toaster
         position="bottom-right"
         toastOptions={{
