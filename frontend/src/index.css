@@ -65,9 +65,10 @@ body {
 }
 
 .font-serif-display {
-  font-family: "Fraunces", "Cormorant Garamond", Georgia, serif;
-  font-feature-settings: "ss01", "ss02";
-  letter-spacing: -0.02em;
+  font-family: "Onest", "Inter", "SF Pro Display", system-ui, sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  font-feature-settings: "ss01", "cv01", "cv11";
 }
 
 .font-mono-tech {
