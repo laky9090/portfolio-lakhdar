@@ -23,6 +23,17 @@ export const PROFILE = {
     location: "Paris, Île-de-France · Remote/Hybride",
     availability: "Contactez-moi pour mes disponibilités",
   },
+  company: {
+    name: "LAKY",
+    form: "SASU",
+    siret: "924 923 766 00027",
+    siren: "924 923 766",
+    vat: "FR77 924 923 766",
+    rcs: "Bobigny",
+    activity: "Conseil en systèmes et logiciels informatiques",
+    address: "35 avenue Paul Vaillant Couturier, 93150 Le Blanc-Mesnil",
+    created: "26/03/2024",
+  },
 };
 
 export const METRICS = [

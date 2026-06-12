@@ -58,6 +58,21 @@ export default function Contact() {
               Disponibilité immédiate ou avec un préavis d'un mois. Contactez-moi pour en savoir plus.
             </p>
 
+            <div
+              className="mt-6 inline-flex items-center gap-3 px-4 py-2.5 rounded-full border border-[#E4E7EB] bg-[#F7F8FA]"
+              data-testid="contact-company-badge"
+            >
+              <span className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#0891B2]">
+                Structure
+              </span>
+              <span className="font-serif-display text-sm text-[#0B0D10]">
+                {PROFILE.company.name} · {PROFILE.company.form}
+              </span>
+              <span className="font-mono-tech text-[10px] text-[#8B8E94]">
+                SIRET {PROFILE.company.siret}
+              </span>
+            </div>
+
             <div className="mt-10 space-y-5">
               <ContactRow icon={Mail} label="Email" value={PROFILE.contact.email} href={`mailto:${PROFILE.contact.email}`} testid="contact-email" />
               <ContactRow icon={Phone} label="Téléphone" value={PROFILE.contact.phone} href={`tel:${PROFILE.contact.phone.replace(/\s/g, "")}`} testid="contact-phone" />
