@@ -91,7 +91,7 @@ export default function Nav() {
                 ? { target: "_blank", rel: "noopener noreferrer" }
                 : {})}
               data-testid="nav-cta-cal"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0891B2] text-white font-medium text-sm hover:bg-[#0E7490] transition"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0891B2] text-white font-medium text-sm hover:bg-[#0E7490] transition whitespace-nowrap"
             >
               {t.ui.nav.cta}
               <span aria-hidden>→</span>

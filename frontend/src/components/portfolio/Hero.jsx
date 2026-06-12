@@ -55,7 +55,7 @@ export default function Hero() {
                   ? { target: "_blank", rel: "noopener noreferrer" }
                   : {})}
                 data-testid="hero-cta-cal"
-                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0891B2] text-white font-medium hover:bg-[#0E7490] transition"
+                className="group inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-[#0891B2] text-white font-medium hover:bg-[#0E7490] transition whitespace-nowrap"
               >
                 <CalendarClock size={16} />
                 {u.cta1}
