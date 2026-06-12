@@ -55,7 +55,7 @@ export default function Contact() {
             </h2>
             <p className="mt-6 text-[#5C616B] text-base md:text-lg leading-relaxed">
               Cadrage, audit, pilotage, mise en production — je réponds sous 24h ouvrées.
-              Disponibilité immédiate pour mission freelance.
+              Disponibilité immédiate ou avec un préavis d'un mois. Contactez-moi pour en savoir plus.
             </p>
 
             <div className="mt-10 space-y-5">
