@@ -1,4 +1,4 @@
-import { EXPERIENCES } from "@/data/portfolio";
+import { EXPERIENCES, EXPERIENCE_YEARS } from "@/data/portfolio";
 import { getMark } from "@/data/companyMarks";
 
 export default function Timeline() {
@@ -15,7 +15,7 @@ export default function Timeline() {
           </div>
           <div className="grid lg:grid-cols-12 gap-10 mt-4 items-end">
             <h2 className="lg:col-span-7 font-serif-display text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              Huit ans. <em className="not-italic text-[#0891B2]">Huit terrains.</em>
+              {EXPERIENCE_YEARS} ans. <em className="not-italic text-[#0891B2]">{EXPERIENCES.length} terrains.</em>
             </h2>
             <p className="lg:col-span-5 text-[#5C616B] text-base md:text-lg">
               Banque, assurance, pharma, industrie, retail. Des programmes On-Prem, Cloud et
@@ -55,18 +55,29 @@ export default function Timeline() {
                           isLeft ? "md:justify-end md:flex-row-reverse" : ""
                         }`}
                       >
-                        <div
-                          className="h-14 w-14 rounded-xl grid place-items-center shrink-0 shadow-sm ring-1 ring-[#E4E7EB]"
-                          style={{ backgroundColor: mark.bg, color: mark.fg }}
-                          aria-label={exp.company}
-                        >
-                          <span
-                            className="text-[15px] tracking-tight"
-                            style={{ fontWeight: mark.weight, fontFamily: "Inter, sans-serif" }}
+                        {exp.logo ? (
+                          <div className="h-14 w-14 rounded-xl bg-white p-2 grid place-items-center shrink-0 ring-1 ring-[#E4E7EB] shadow-sm">
+                            <img
+                              src={exp.logo}
+                              alt={exp.company}
+                              className="max-h-full max-w-full object-contain"
+                              loading="lazy"
+                            />
+                          </div>
+                        ) : (
+                          <div
+                            className="h-14 w-14 rounded-xl grid place-items-center shrink-0 shadow-sm ring-1 ring-[#E4E7EB]"
+                            style={{ backgroundColor: mark.bg, color: mark.fg }}
+                            aria-label={exp.company}
                           >
-                            {mark.abbr}
-                          </span>
-                        </div>
+                            <span
+                              className="text-[15px] tracking-tight"
+                              style={{ fontWeight: mark.weight, fontFamily: "Inter, sans-serif" }}
+                            >
+                              {mark.abbr}
+                            </span>
+                          </div>
+                        )}
                         <div className={isLeft ? "md:text-right" : ""}>
                           <div className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#8B8E94]">
                             {exp.period} · {exp.duration}

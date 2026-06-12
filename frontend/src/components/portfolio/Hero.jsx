@@ -1,14 +1,14 @@
 import { ArrowDownRight, Sparkles } from "lucide-react";
-import { PROFILE } from "@/data/portfolio";
-import { COMPANY_MARKS, getMark } from "@/data/companyMarks";
+import { PROFILE, EXPERIENCE_YEARS } from "@/data/portfolio";
+import { getMark } from "@/data/companyMarks";
 
 const CLIENT_NAMES = [
-  "AXA",
-  "Sanofi",
-  "Abeille Assurances",
-  "BNP Paribas Leasing Solutions",
-  "TotalEnergies",
-  "Lacoste",
+  { name: "AXA", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7rycan9s_AXA_Logo.png" },
+  { name: "Sanofi", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/2s309tp2_Logo_Sanofi.png" },
+  { name: "Abeille Assurances", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/bjt3f34t_logo%20abeille%20assurances.png" },
+  { name: "BNP Paribas Leasing Solutions", logo: "" },
+  { name: "TotalEnergies", logo: "" },
+  { name: "Lacoste", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/hp4b0use_Lacoste_logo.png" },
 ];
 
 export default function Hero() {
@@ -84,7 +84,7 @@ export default function Hero() {
                 /signal
               </div>
               <div className="mt-4 space-y-5">
-                <Stat k="8+" v="ans de pilotage IT" />
+                <Stat k={`${EXPERIENCE_YEARS}+`} v="ans de pilotage IT" />
                 <div className="h-px bg-[#E4E7EB]" />
                 <Stat k="4M€" v="plus gros programme livré" />
                 <div className="h-px bg-[#E4E7EB]" />
@@ -107,17 +107,28 @@ export default function Hero() {
           </div>
           <div className="relative overflow-hidden">
             <div className="flex gap-16 animate-marquee w-max">
-              {[...CLIENT_NAMES, ...CLIENT_NAMES, ...CLIENT_NAMES].map((name, i) => {
-                const m = getMark(name);
-                const short = name.split(" ")[0];
+              {[...CLIENT_NAMES, ...CLIENT_NAMES, ...CLIENT_NAMES].map((c, i) => {
+                const m = getMark(c.name);
+                const short = c.name.split(" ")[0];
                 return (
-                  <div key={i} className="flex items-center gap-3 opacity-80 hover:opacity-100 transition">
-                    <div
-                      className="h-8 w-8 rounded grid place-items-center ring-1 ring-[#E4E7EB] shadow-sm"
-                      style={{ backgroundColor: m.bg, color: m.fg }}
-                    >
-                      <span className="text-[10px]" style={{ fontWeight: m.weight }}>{m.abbr}</span>
-                    </div>
+                  <div key={i} className="flex items-center gap-3 opacity-85 hover:opacity-100 transition">
+                    {c.logo ? (
+                      <div className="h-9 w-9 rounded bg-white grid place-items-center ring-1 ring-[#E4E7EB] shadow-sm p-1">
+                        <img
+                          src={c.logo}
+                          alt={c.name}
+                          className="max-h-full max-w-full object-contain"
+                          loading="lazy"
+                        />
+                      </div>
+                    ) : (
+                      <div
+                        className="h-9 w-9 rounded grid place-items-center ring-1 ring-[#E4E7EB] shadow-sm"
+                        style={{ backgroundColor: m.bg, color: m.fg }}
+                      >
+                        <span className="text-[11px]" style={{ fontWeight: m.weight }}>{m.abbr}</span>
+                      </div>
+                    )}
                     <span className="font-serif-display text-xl text-[#0B0D10]">{short}</span>
                   </div>
                 );

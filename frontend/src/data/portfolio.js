@@ -1,18 +1,22 @@
 // Portfolio data - Lakhdar DAMAR
 
+// Auto-updating year counter. First "Chef de Projet" role started Feb 2017.
+// Each January 1st the count auto-increments — no manual edit needed.
+export const CAREER_START_YEAR = 2016;
+export const EXPERIENCE_YEARS = new Date().getFullYear() - CAREER_START_YEAR;
+
 export const PROFILE = {
   name: "Lakhdar DAMAR",
   role: "Chef de Projet IT Infrastructure",
   tagline: "Multi-cloud · Hybride · Régulé",
-  shortPitch:
-    "8 ans à piloter des transformations IT complexes pour des grands groupes — Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.",
+  shortPitch: `${EXPERIENCE_YEARS} ans à piloter des transformations IT complexes pour des grands groupes — Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.`,
   photo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/dma8jbex_JUD_6173a.jpg",
   contact: {
     email: "dhllaky@gmail.com",
     phone: "07 53 77 03 20",
     linkedin: "https://www.linkedin.com/in/lakhdar-damar/",
     location: "Paris, Île-de-France · Remote/Hybride",
-    availability: "Disponible pour mission freelance",
+    availability: "Contactez-moi pour mes disponibilités",
   },
 };
 
@@ -90,7 +94,7 @@ export const EXPERIENCES = [
   },
   {
     company: "Abeille Assurances",
-    logo: "https://logo.clearbit.com/abeille-assurances.fr",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/bjt3f34t_logo%20abeille%20assurances.png",
     period: "Nov. 2022 – Août 2024",
     duration: "1 an 10 mois",
     role: "Chef de Projet Infrastructure & Cybersécurité",
@@ -107,7 +111,7 @@ export const EXPERIENCES = [
   },
   {
     company: "Sanofi",
-    logo: "https://logo.clearbit.com/sanofi.com",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/2s309tp2_Logo_Sanofi.png",
     period: "Nov. 2021 – Oct. 2022",
     duration: "1 an",
     role: "Chef de Projet Infrastructure (GxP)",
@@ -123,7 +127,7 @@ export const EXPERIENCES = [
   },
   {
     company: "Lacoste",
-    logo: "https://logo.clearbit.com/lacoste.com",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/hp4b0use_Lacoste_logo.png",
     period: "Jan. 2021 – Oct. 2021",
     duration: "10 mois",
     role: "Chef de Projet Réseaux & Télécoms",
@@ -138,7 +142,7 @@ export const EXPERIENCES = [
   },
   {
     company: "Corelia (ex D.FI)",
-    logo: "https://logo.clearbit.com/corelia.fr",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/u62qkwwx_Logo%20Corelia.png",
     period: "Mar. 2020 – Déc. 2020",
     duration: "10 mois",
     role: "Chef de Projet Infrastructure (ESN)",
@@ -166,7 +170,7 @@ export const EXPERIENCES = [
   },
   {
     company: "TotalEnergies",
-    logo: "https://logo.clearbit.com/totalenergies.com",
+    logo: "",
     period: "Fév. 2017 – Fév. 2019",
     duration: "2 ans",
     role: "Chef de Projet Infrastructure Multi-pays",
@@ -182,7 +186,7 @@ export const EXPERIENCES = [
   },
   {
     company: "Gebo Cermex",
-    logo: "https://logo.clearbit.com/gebocermex.com",
+    logo: "",
     period: "Sep. 2015 – Août 2016",
     duration: "1 an",
     role: "Apprenti Réseaux — équipe Remote Access",
