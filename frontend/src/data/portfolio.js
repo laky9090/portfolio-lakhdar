@@ -1,15 +1,20 @@
 // Portfolio data - Lakhdar DAMAR
 
-// Auto-updating year counter. First "Chef de Projet" role started Feb 2017.
-// Each January 1st the count auto-increments — no manual edit needed.
-export const CAREER_START_YEAR = 2016;
-export const EXPERIENCE_YEARS = new Date().getFullYear() - CAREER_START_YEAR;
+// Auto-updating year counters (no manual edit, recompute on every page load).
+// IT career started Sept 2015 (Gebo Cermex apprenticeship).
+// IT Infrastructure project management started Feb 2017 (TotalEnergies).
+export const IT_CAREER_START_YEAR = 2015;
+export const PM_INFRA_START_YEAR = 2017;
+export const TOTAL_IT_YEARS = new Date().getFullYear() - IT_CAREER_START_YEAR;
+export const PM_INFRA_YEARS = new Date().getFullYear() - PM_INFRA_START_YEAR;
+// Backward compat alias used by some components
+export const EXPERIENCE_YEARS = TOTAL_IT_YEARS;
 
 export const PROFILE = {
   name: "Lakhdar DAMAR",
   role: "Chef de Projet IT Infrastructure",
   tagline: "Multi-cloud · Hybride · Régulé",
-  shortPitch: `${EXPERIENCE_YEARS} ans à piloter des transformations IT complexes pour des grands groupes — Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.`,
+  shortPitch: `${TOTAL_IT_YEARS} ans dans l'IT, dont ${PM_INFRA_YEARS} ans en gestion de projet IT Infrastructure pour des grands groupes — Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.`,
   photo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/dma8jbex_JUD_6173a.jpg",
   contact: {
     email: "dhllaky@gmail.com",
@@ -24,7 +29,7 @@ export const METRICS = [
   { value: "4M€", label: "Plus gros projet piloté", caption: "Séparation AVIVA FR ↔ UK" },
   { value: "4200+", label: "Postes sécurisés", caption: "Déploiement MFA / EDR" },
   { value: "120", label: "Serveurs migrés", caption: "Décommissionnement & migrations" },
-  { value: "8", label: "Années d'expérience", caption: "Pilotage projets IT" },
+  { value: `${TOTAL_IT_YEARS}`, label: "Années dans l'IT", caption: `Depuis ${IT_CAREER_START_YEAR}`, note: `Dont ${PM_INFRA_YEARS} ans en pilotage IT Infra` },
   { value: "7", label: "Secteurs régulés", caption: "Banque, Assurance, Pharma…" },
   { value: "200+", label: "Flux réseau analysés", caption: "Coupures & rapatriements" },
 ];
@@ -78,7 +83,7 @@ export const STACK = [
 export const EXPERIENCES = [
   {
     company: "AXA",
-    logo: "https://logo.clearbit.com/axa.com",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7rycan9s_AXA_Logo.png",
     period: "Sep. 2024 – Déc. 2025",
     duration: "1 an 4 mois",
     role: "Chef de Projet IT Infrastructure",
@@ -156,7 +161,7 @@ export const EXPERIENCES = [
   },
   {
     company: "BNP Paribas Leasing Solutions",
-    logo: "https://logo.clearbit.com/mabanque.bnpparibas",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/y5tbcy56_Logo%20bnp.png",
     period: "Fév. 2019 – Fév. 2020",
     duration: "1 an",
     role: "Chef de Projet Infrastructure (Banque)",
@@ -170,7 +175,7 @@ export const EXPERIENCES = [
   },
   {
     company: "TotalEnergies",
-    logo: "",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7w06ic0y_Logo_TotalEnergies.svg",
     period: "Fév. 2017 – Fév. 2019",
     duration: "2 ans",
     role: "Chef de Projet Infrastructure Multi-pays",
@@ -186,7 +191,7 @@ export const EXPERIENCES = [
   },
   {
     company: "Gebo Cermex",
-    logo: "",
+    logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/8l8ubljw_Gebo_Cermex_logo.png",
     period: "Sep. 2015 – Août 2016",
     duration: "1 an",
     role: "Apprenti Réseaux — équipe Remote Access",

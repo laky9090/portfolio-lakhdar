@@ -1,13 +1,13 @@
 import { ArrowDownRight, Sparkles } from "lucide-react";
-import { PROFILE, EXPERIENCE_YEARS } from "@/data/portfolio";
+import { PROFILE, TOTAL_IT_YEARS, PM_INFRA_YEARS } from "@/data/portfolio";
 import { getMark } from "@/data/companyMarks";
 
 const CLIENT_NAMES = [
   { name: "AXA", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7rycan9s_AXA_Logo.png" },
   { name: "Sanofi", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/2s309tp2_Logo_Sanofi.png" },
   { name: "Abeille Assurances", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/bjt3f34t_logo%20abeille%20assurances.png" },
-  { name: "BNP Paribas Leasing Solutions", logo: "" },
-  { name: "TotalEnergies", logo: "" },
+  { name: "BNP Paribas Leasing Solutions", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/y5tbcy56_Logo%20bnp.png" },
+  { name: "TotalEnergies", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7w06ic0y_Logo_TotalEnergies.svg" },
   { name: "Lacoste", logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/hp4b0use_Lacoste_logo.png" },
 ];
 
@@ -84,7 +84,9 @@ export default function Hero() {
                 /signal
               </div>
               <div className="mt-4 space-y-5">
-                <Stat k={`${EXPERIENCE_YEARS}+`} v="ans de pilotage IT" />
+                <Stat k={`${TOTAL_IT_YEARS}+`} v="ans dans l'IT" />
+                <div className="h-px bg-[#E4E7EB]" />
+                <Stat k={`${PM_INFRA_YEARS}+`} v="ans en pilotage IT Infra" />
                 <div className="h-px bg-[#E4E7EB]" />
                 <Stat k="4M€" v="plus gros programme livré" />
                 <div className="h-px bg-[#E4E7EB]" />

@@ -59,6 +59,11 @@ function MetricCard({ m }) {
         {suffix}
       </div>
       <div className="mt-4 text-sm text-[#0B0D10]/90">{m.label}</div>
+      {m.note && (
+        <div className="mt-2 font-mono-tech text-[10px] uppercase tracking-[0.2em] text-[#0891B2]">
+          {m.note}
+        </div>
+      )}
     </div>
   );
 }
