@@ -11,7 +11,7 @@ export default function Timeline() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="mb-16">
           <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">
-            /04 — parcours
+            /05 — parcours
           </div>
           <div className="grid lg:grid-cols-12 gap-10 mt-4 items-end">
             <h2 className="lg:col-span-7 font-serif-display text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">

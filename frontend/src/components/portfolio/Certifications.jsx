@@ -12,7 +12,7 @@ export default function Certifications() {
         <div className="grid lg:grid-cols-12 gap-10 mb-14 items-end">
           <div className="lg:col-span-7">
             <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">
-              /05 — formations & certifications
+              /06 — formations & certifications
             </div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
               Des credentials, <em className="not-italic text-[#0891B2]">vérifiables</em>

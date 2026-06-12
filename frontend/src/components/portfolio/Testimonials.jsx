@@ -11,7 +11,7 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="mb-14">
           <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">
-            /06 — témoignages
+            /07 — témoignages
           </div>
           <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
             Ce que disent <em className="not-italic text-[#0891B2]">les COPIL</em>

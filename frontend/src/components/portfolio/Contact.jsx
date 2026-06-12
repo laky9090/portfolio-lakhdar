@@ -48,7 +48,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-12 gap-12">
           <div className="lg:col-span-5">
             <div className="font-mono-tech text-[11px] uppercase tracking-[0.25em] text-[#0891B2]">
-              /07 — contact
+              /08 — contact
             </div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
               Parlons de votre <em className="not-italic text-[#0891B2]">prochain projet</em>

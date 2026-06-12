@@ -86,7 +86,7 @@ export const STACK = [
   { cat: "Sécurité", items: ["CrowdStrike", "MFA", "CyberArk", "ACL"] },
   { cat: "Base de données", items: ["SQL Server", "Oracle", "DataStage", "IBM DB2"] },
   { cat: "Scripts", items: ["Bash", "PowerShell", "Python", "SQL"] },
-  { cat: "Outils projet", items: ["JIRA", "MS Project", "ServiceNow", "Trello", "Gantt Project"] },
+  { cat: "Outils projet", items: ["JIRA", "MS Project", "ServiceNow", "Trello", "Asana", "Gantt Project"] },
   { cat: "Méthodes", items: ["Agile Scrum", "Cycle en V", "PRINCE2", "ITIL"] },
   { cat: "Supervision", items: ["Centreon", "Veeam", "Micro Focus", "Splunk", "Commvault"] },
 ];

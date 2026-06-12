@@ -5,6 +5,7 @@ import About from "@/components/portfolio/About";
 import Metrics from "@/components/portfolio/Metrics";
 import Expertise from "@/components/portfolio/Expertise";
 import TechStack from "@/components/portfolio/TechStack";
+import ValueProp from "@/components/portfolio/ValueProp";
 import Timeline from "@/components/portfolio/Timeline";
 import Certifications from "@/components/portfolio/Certifications";
 import Testimonials from "@/components/portfolio/Testimonials";
@@ -24,6 +25,7 @@ export default function Portfolio() {
       <Metrics />
       <Expertise />
       <TechStack />
+      <ValueProp />
       <Timeline />
       <Certifications />
       <Testimonials />
