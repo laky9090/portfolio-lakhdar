@@ -18,7 +18,7 @@ export default function TechStack() {
               /03 — stack technique
             </div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              Le terrain. <em className="not-italic text-[#0891B2]">Pas que la slide.</em>
+              Le terrain · <em className="not-italic text-[#0891B2]">pas que la slide</em>
             </h2>
           </div>
           <p className="lg:col-span-5 text-[#5C616B] text-base md:text-lg">

@@ -15,7 +15,7 @@ export default function Expertise() {
               /02 — expertises clés
             </div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              Six piliers, <em className="not-italic text-[#0891B2]">zéro angle mort.</em>
+              Six piliers, <em className="not-italic text-[#0891B2]">zéro angle mort</em>
             </h2>
           </div>
           <p className="lg:col-span-5 text-[#5C616B] text-base md:text-lg">

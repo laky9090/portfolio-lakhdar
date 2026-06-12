@@ -14,7 +14,7 @@ export default function Testimonials() {
             /06 — témoignages
           </div>
           <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-            Ce que disent <em className="not-italic text-[#0891B2]">les COPIL.</em>
+            Ce que disent <em className="not-italic text-[#0891B2]">les COPIL</em>
           </h2>
         </div>
 

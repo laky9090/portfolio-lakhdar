@@ -44,7 +44,7 @@ export default function Hero() {
             >
               Je pilote vos <em className="not-italic text-[#0891B2]">projets IT</em>
               <br />
-              les plus <span className="italic text-[#0E7490]">stratégiques.</span>
+              les plus <span className="italic text-[#0E7490]">stratégiques</span>
             </h1>
 
             <p

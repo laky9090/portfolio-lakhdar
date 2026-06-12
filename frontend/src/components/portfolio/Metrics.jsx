@@ -82,7 +82,7 @@ export default function Metrics() {
               /01 — pourquoi me recruter
             </div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              Des résultats <em className="not-italic text-[#0891B2]">mesurables.</em>
+              Des résultats <em className="not-italic text-[#0891B2]">mesurables</em>
             </h2>
           </div>
           <p className="max-w-md text-[#5C616B] text-base md:text-lg">

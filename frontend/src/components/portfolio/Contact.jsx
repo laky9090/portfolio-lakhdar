@@ -51,7 +51,7 @@ export default function Contact() {
               /07 — contact
             </div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              Parlons de votre <em className="not-italic text-[#0891B2]">prochain projet.</em>
+              Parlons de votre <em className="not-italic text-[#0891B2]">prochain projet</em>
             </h2>
             <p className="mt-6 text-[#5C616B] text-base md:text-lg leading-relaxed">
               Cadrage, audit, pilotage, mise en production — je réponds sous 24h ouvrées.

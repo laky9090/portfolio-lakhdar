@@ -60,7 +60,7 @@ export default function About() {
             <h2 className="font-serif-display mt-4 text-4xl md:text-5xl lg:text-6xl text-[#0B0D10] leading-[1.02]">
               Aligner la <em className="not-italic text-[#0891B2]">technique</em>
               <br />
-              et le <em className="not-italic text-[#0E7490]">métier.</em>
+              et le <em className="not-italic text-[#0E7490]">métier</em>
             </h2>
 
             <p className="mt-8 text-xl md:text-2xl text-[#0B0D10]/90 font-serif-display leading-snug">

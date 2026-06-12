@@ -15,7 +15,7 @@ export default function Certifications() {
               /05 — formations & certifications
             </div>
             <h2 className="font-serif-display mt-4 text-4xl md:text-6xl text-[#0B0D10] leading-[0.95]">
-              Des credentials, <em className="not-italic text-[#0891B2]">vérifiables.</em>
+              Des credentials, <em className="not-italic text-[#0891B2]">vérifiables</em>
             </h2>
           </div>
         </div>
