@@ -1,4 +1,5 @@
 import { EXPERIENCES } from "@/data/portfolio";
+import { getMark } from "@/data/companyMarks";
 
 export default function Timeline() {
   return (
@@ -30,6 +31,7 @@ export default function Timeline() {
           <div className="space-y-12 md:space-y-16">
             {EXPERIENCES.map((exp, i) => {
               const isLeft = i % 2 === 0;
+              const mark = getMark(exp.company);
               return (
                 <article
                   key={exp.company}
@@ -53,19 +55,17 @@ export default function Timeline() {
                           isLeft ? "md:justify-end md:flex-row-reverse" : ""
                         }`}
                       >
-                        <div className="h-14 w-14 rounded-xl bg-white p-2 grid place-items-center shrink-0 ring-1 ring-[#E4E7EB] shadow-sm relative">
-                          <span className="absolute inset-0 grid place-items-center font-serif-display text-xl text-[#0B0D10]">
-                            {exp.company[0]}
+                        <div
+                          className="h-14 w-14 rounded-xl grid place-items-center shrink-0 shadow-sm ring-1 ring-[#E4E7EB]"
+                          style={{ backgroundColor: mark.bg, color: mark.fg }}
+                          aria-label={exp.company}
+                        >
+                          <span
+                            className="text-[15px] tracking-tight"
+                            style={{ fontWeight: mark.weight, fontFamily: "Inter, sans-serif" }}
+                          >
+                            {mark.abbr}
                           </span>
-                          <img
-                            src={exp.logo}
-                            alt={exp.company}
-                            className="relative max-h-full max-w-full object-contain bg-white"
-                            loading="lazy"
-                            onError={(e) => {
-                              e.currentTarget.style.display = "none";
-                            }}
-                          />
                         </div>
                         <div className={isLeft ? "md:text-right" : ""}>
                           <div className="font-mono-tech text-[10px] uppercase tracking-[0.22em] text-[#8B8E94]">

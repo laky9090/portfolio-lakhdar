@@ -1,13 +1,14 @@
 import { ArrowDownRight, Sparkles } from "lucide-react";
 import { PROFILE } from "@/data/portfolio";
+import { COMPANY_MARKS, getMark } from "@/data/companyMarks";
 
-const CLIENT_LOGOS = [
-  { name: "AXA", url: "https://logo.clearbit.com/axa.com" },
-  { name: "Sanofi", url: "https://logo.clearbit.com/sanofi.com" },
-  { name: "Abeille", url: "https://logo.clearbit.com/abeille-assurances.fr" },
-  { name: "BNP", url: "https://logo.clearbit.com/mabanque.bnpparibas" },
-  { name: "TotalEnergies", url: "https://logo.clearbit.com/totalenergies.com" },
-  { name: "Lacoste", url: "https://logo.clearbit.com/lacoste.com" },
+const CLIENT_NAMES = [
+  "AXA",
+  "Sanofi",
+  "Abeille Assurances",
+  "BNP Paribas Leasing Solutions",
+  "TotalEnergies",
+  "Lacoste",
 ];
 
 export default function Hero() {
@@ -106,17 +107,21 @@ export default function Hero() {
           </div>
           <div className="relative overflow-hidden">
             <div className="flex gap-16 animate-marquee w-max">
-              {[...CLIENT_LOGOS, ...CLIENT_LOGOS, ...CLIENT_LOGOS].map((l, i) => (
-                <div key={i} className="flex items-center gap-3 opacity-70 hover:opacity-100 transition">
-                  <img
-                    src={l.url}
-                    alt={l.name}
-                    className="h-7 w-7 rounded bg-white p-1 object-contain ring-1 ring-[#E4E7EB]"
-                    loading="lazy"
-                  />
-                  <span className="font-serif-display text-xl text-[#0B0D10]">{l.name}</span>
-                </div>
-              ))}
+              {[...CLIENT_NAMES, ...CLIENT_NAMES, ...CLIENT_NAMES].map((name, i) => {
+                const m = getMark(name);
+                const short = name.split(" ")[0];
+                return (
+                  <div key={i} className="flex items-center gap-3 opacity-80 hover:opacity-100 transition">
+                    <div
+                      className="h-8 w-8 rounded grid place-items-center ring-1 ring-[#E4E7EB] shadow-sm"
+                      style={{ backgroundColor: m.bg, color: m.fg }}
+                    >
+                      <span className="text-[10px]" style={{ fontWeight: m.weight }}>{m.abbr}</span>
+                    </div>
+                    <span className="font-serif-display text-xl text-[#0B0D10]">{short}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
