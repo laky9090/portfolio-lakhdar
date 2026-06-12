@@ -6,6 +6,7 @@ export const PROFILE = {
   tagline: "Multi-cloud · Hybride · Régulé",
   shortPitch:
     "8 ans à piloter des transformations IT complexes pour des grands groupes — Banque, Assurance, Pharma, Industrie. Je livre dans les délais, dans le budget, et avec un niveau de sécurité non négociable.",
+  photo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/dma8jbex_JUD_6173a.jpg",
   contact: {
     email: "dhllaky@gmail.com",
     phone: "07 53 77 03 20",

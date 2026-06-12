@@ -43,9 +43,11 @@ export default function Nav() {
             data-testid="nav-logo"
             className="flex items-center gap-3 group"
           >
-            <span className="h-9 w-9 rounded-full border border-[#E4E7EB] grid place-items-center font-serif-display text-[#0891B2] text-lg group-hover:border-[#0891B2] transition">
-              L
-            </span>
+            <img
+              src="https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/dma8jbex_JUD_6173a.jpg"
+              alt="Lakhdar DAMAR"
+              className="h-10 w-10 rounded-full object-cover ring-1 ring-[#E4E7EB] group-hover:ring-[#0891B2] transition"
+            />
             <div className="leading-tight">
               <div className="font-serif-display text-base text-[#0B0D10]">
                 Lakhdar DAMAR
