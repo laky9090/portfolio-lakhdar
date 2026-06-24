@@ -55,7 +55,7 @@ const fr = {
     nav: {
       profil: "Profil", chiffres: "Chiffres clés", expertises: "Expertises",
       stack: "Stack", methode: "Méthode", parcours: "Parcours",
-      certifications: "Certifications", contact: "Contact",
+      certifications: "Certifications", realisations: "Réalisations", contact: "Contact",
       cv: "CV", cta: "Réserver un call",
     },
     hero: {
@@ -127,6 +127,27 @@ const fr = {
       certs_label: "Certifications",
       formations_label: "Formation académique",
       languages_label: "Langues",
+    },
+    realisations: {
+      kicker: "/07, réalisations personnelles",
+      h1: "ProjeXcel",
+      tagline: "Un système complet de gestion de projet conçu sous Excel, à partir de ma pratique du pilotage sur le terrain.",
+      tags: ["Gestion de projet", "Excel avancé", "PMO", "Outil no-code"],
+      paragraphs: [
+        "ProjeXcel est un système de gestion de projet que j'ai conçu et développé sous Excel, à partir de ma pratique du pilotage sur le terrain. L'idée : industrialiser dans un seul outil les méthodes que j'applique au quotidien, planification, suivi d'avancement, reporting de comité de pilotage, gestion des risques et du budget.",
+        "Le principe est de saisir l'information une seule fois, dans une feuille unique, et de laisser l'outil générer automatiquement le tableau de bord, le Gantt, le Kanban, le reporting COPIL, les KPI, le registre des risques et le suivi de charge. Le système recalcule le chemin critique en cascade, projette la date de fin réelle via une approche EVM/SPI, et détecte automatiquement les risques projet.",
+        "Ce projet illustre ma maîtrise des méthodes de pilotage (CPM, EVM, RACI, comitologie) et ma capacité à structurer une démarche complexe en un outil simple, fiable et directement exploitable.",
+      ],
+      points: [
+        "23 onglets synchronisés en temps réel",
+        "Près de 28 000 formules (XLOOKUP, LAMBDA, FILTER, LET)",
+        "Une seule feuille de saisie alimente toutes les vues",
+        "Analyse prédictive EVM/SPI : date de fin projetée, probabilité de Go-Live",
+        "Chemin critique et dépendances calculés automatiquement",
+        "Sans macro, sans cloud, sans abonnement, conçu pour Excel 365 / 2021+",
+      ],
+      cta: "Découvrir le projet",
+      ctaUrl: "https://dhllaky.gumroad.com/l/lytcx",
     },
     contact: {
       kicker: "/08, contact",
@@ -329,7 +350,7 @@ const en = {
     nav: {
       profil: "Profile", chiffres: "Key figures", expertises: "Expertise",
       stack: "Stack", methode: "Method", parcours: "Experience",
-      certifications: "Certifications", contact: "Contact",
+      certifications: "Certifications", realisations: "Projects", contact: "Contact",
       cv: "CV", cta: "Book a call",
     },
     hero: {
@@ -401,6 +422,27 @@ const en = {
       certs_label: "Certifications",
       formations_label: "Academic background",
       languages_label: "Languages",
+    },
+    realisations: {
+      kicker: "/07, personal projects",
+      h1: "ProjeXcel",
+      tagline: "A complete project management system designed in Excel, born from my hands-on PM practice in the field.",
+      tags: ["Project management", "Advanced Excel", "PMO", "No-code tool"],
+      paragraphs: [
+        "ProjeXcel is a project management system I designed and built in Excel, drawing from my hands-on PM practice. The goal: industrialise in a single tool the methods I apply daily, planning, progress tracking, steering committee reporting, risk and budget management.",
+        "The principle is to enter information once, in a single sheet, and let the tool automatically generate the dashboard, Gantt, Kanban, steerco reporting, KPIs, risk register and workload tracking. The system recalculates the critical path in cascade, projects the actual end date via an EVM/SPI approach, and automatically detects project risks.",
+        "This project illustrates my command of PM methods (CPM, EVM, RACI, governance) and my ability to structure a complex approach into a simple, reliable and immediately actionable tool.",
+      ],
+      points: [
+        "23 sheets synchronized in real time",
+        "Nearly 28,000 formulas (XLOOKUP, LAMBDA, FILTER, LET)",
+        "A single input sheet feeds every view",
+        "Predictive EVM/SPI analysis: projected end date, Go-Live probability",
+        "Critical path and dependencies computed automatically",
+        "No macros, no cloud, no subscription, built for Excel 365 / 2021+",
+      ],
+      cta: "Discover the project",
+      ctaUrl: "https://dhllaky.gumroad.com/l/lytcx",
     },
     contact: {
       kicker: "/08, contact",

@@ -22,6 +22,7 @@ export default function Nav() {
     { href: "#methode", label: t.ui.nav.methode },
     { href: "#parcours", label: t.ui.nav.parcours },
     { href: "#certifications", label: t.ui.nav.certifications },
+    { href: "#realisations", label: t.ui.nav.realisations },
     { href: "#contact", label: t.ui.nav.contact },
   ];
 

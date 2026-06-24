@@ -8,6 +8,7 @@ import TechStack from "@/components/portfolio/TechStack";
 import ValueProp from "@/components/portfolio/ValueProp";
 import Timeline from "@/components/portfolio/Timeline";
 import Certifications from "@/components/portfolio/Certifications";
+import Realisations from "@/components/portfolio/Realisations";
 import Contact from "@/components/portfolio/Contact";
 import Footer from "@/components/portfolio/Footer";
 
@@ -27,6 +28,7 @@ export default function Portfolio() {
       <ValueProp />
       <Timeline />
       <Certifications />
+      <Realisations />
       <Contact />
       <Footer />
     </main>
