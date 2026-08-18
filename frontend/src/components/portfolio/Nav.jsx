@@ -33,40 +33,40 @@ export default function Nav() {
       data-testid="main-nav"
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-6"}`}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-10">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-10">
         <div
           className={`flex items-center justify-between gap-6 rounded-full transition-all duration-500 ${
             scrolled ? "glass px-5 py-3" : "px-2 py-2"
           }`}
         >
-          <a href="#top" data-testid="nav-logo" className="flex items-center gap-3 group">
+          <a href="#top" data-testid="nav-logo" className="flex items-center gap-3 group shrink-0">
             <img
               src={t.profile.photo}
               alt={t.profile.name}
               className="h-10 w-10 rounded-full object-cover object-top ring-1 ring-[#E4E7EB] group-hover:ring-[#0891B2] transition"
             />
             <div className="leading-tight">
-              <div className="font-serif-display text-base text-[#0B0D10]">{t.profile.name}</div>
-              <div className="font-mono-tech text-[10px] uppercase tracking-[0.25em] text-[#8B8E94]">
+              <div className="font-serif-display text-base text-[#0B0D10] whitespace-nowrap">{t.profile.name}</div>
+              <div className="font-mono-tech text-[10px] uppercase tracking-[0.25em] text-[#8B8E94] whitespace-nowrap min-[1400px]:max-2xl:hidden">
                 {t.profile.role}
               </div>
             </div>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden min-[1400px]:flex items-center gap-4">
             {LINKS.map((l) => (
               <a
                 key={l.href}
                 href={l.href}
                 data-testid={`nav-link-${l.label.toLowerCase().replace(/\s+/g, "-")}`}
-                className="font-mono-tech text-[11px] uppercase tracking-[0.18em] text-[#5C616B] hover:text-[#0891B2] transition"
+                className="font-mono-tech text-[11px] uppercase tracking-[0.15em] text-[#5C616B] hover:text-[#0891B2] transition whitespace-nowrap"
               >
                 {l.label}
               </a>
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-2">
+          <div className="hidden md:flex items-center gap-2 shrink-0 ml-auto">
             <button
               onClick={toggleLang}
               data-testid="nav-lang-toggle"
@@ -102,7 +102,7 @@ export default function Nav() {
           <button
             data-testid="nav-mobile-toggle"
             onClick={() => setOpen((s) => !s)}
-            className="lg:hidden h-10 w-10 grid place-items-center rounded-full border border-[#E4E7EB] text-[#0B0D10]"
+            className="min-[1400px]:hidden h-10 w-10 grid place-items-center rounded-full border border-[#E4E7EB] text-[#0B0D10] shrink-0"
             aria-label="menu"
           >
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -110,7 +110,7 @@ export default function Nav() {
         </div>
 
         {open && (
-          <div className="lg:hidden mt-3 glass rounded-2xl p-5" data-testid="mobile-menu">
+          <div className="min-[1400px]:hidden mt-3 glass rounded-2xl p-5" data-testid="mobile-menu">
             <ul className="space-y-3">
               {LINKS.map((l) => (
                 <li key={l.href}>
