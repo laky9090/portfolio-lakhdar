@@ -6,11 +6,6 @@ function getEnv() {
   };
 }
 
-function setCors(res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-}
 
 function safe(s) {
   return String(s == null ? "" : s).replace(/[<>&]/g, (c) => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]));
@@ -73,7 +68,6 @@ async function readBody(req) {
 }
 
 module.exports = async function handler(req, res) {
-  setCors(res);
   const { RESEND_API_KEY, NOTIFY_EMAIL, SENDER_EMAIL } = getEnv();
 
   if (req.method === "OPTIONS") {
@@ -112,6 +106,13 @@ module.exports = async function handler(req, res) {
   const message = trim(raw.message);
   const company = raw.company ? trim(raw.company) : null;
   const subject = raw.subject ? trim(raw.subject) : null;
+  const honeypot = trim(raw.website);
+
+  // Anti-spam honeypot: the "website" field is hidden in the form — a human never
+  // fills it. Pretend success so bots don't adapt, but send nothing.
+  if (honeypot) {
+    return res.status(200).json({ id: `m_${Date.now()}`, ok: true });
+  }
 
   // Validation with per-field error messages
   const errors = {};
