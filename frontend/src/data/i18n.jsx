@@ -14,8 +14,23 @@ function years(start) {
 const TOTAL_IT_YEARS = years(IT_CAREER_START_YEAR);
 const PM_INFRA_YEARS = years(PM_INFRA_START_YEAR);
 
+// BPCE-IT mission started Jan. 2026 — duration auto-updates each month.
+function monthsSince(year, monthIndex) {
+  const now = new Date();
+  return Math.max(1, (now.getFullYear() - year) * 12 + (now.getMonth() - monthIndex) + 1);
+}
+const BPCE_MONTHS = monthsSince(2026, 0);
+function fmtDuration(m, one, many, monthWord) {
+  if (m < 12) return `${m} ${monthWord}`;
+  const y = Math.floor(m / 12), r = m % 12;
+  const yearsPart = `${y} ${y > 1 ? many : one}`;
+  return r ? `${yearsPart} ${r} ${monthWord}` : yearsPart;
+}
+const BPCE_DURATION_FR = fmtDuration(BPCE_MONTHS, "an", "ans", "mois");
+const BPCE_DURATION_EN = fmtDuration(BPCE_MONTHS, "year", "years", BPCE_MONTHS % 12 === 1 ? "month" : "months");
+
 const PHOTO = "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/dma8jbex_JUD_6173a.jpg";
-const CV_URL = "https://customer-assets.emergentagent.com/job_101a3f2c-482b-4382-9291-93afae4d9b77/artifacts/br868tb6_CV_Lakhdar_DAMAR.html";
+const CV_URL = "/cv/CV_Lakhdar_DAMAR.html";
 const CAL_URL = process.env.REACT_APP_CAL_URL || "#contact";
 const LINKEDIN = "https://www.linkedin.com/in/lakhdar-damar/";
 
@@ -195,14 +210,28 @@ const fr = {
     { cat: "Sécurité", items: ["CrowdStrike", "MFA", "CyberArk", "ACL"] },
     { cat: "Base de données", items: ["SQL Server", "Oracle", "DataStage", "IBM DB2"] },
     { cat: "Scripts", items: ["Bash", "PowerShell", "Python", "SQL"] },
-    { cat: "Outils projet", items: ["JIRA", "MS Project", "ServiceNow", "Trello", "Asana", "Gantt Project"] },
-    { cat: "Méthodes", items: ["Agile Scrum", "Cycle en V", "PRINCE2", "ITIL"] },
+    { cat: "Outils projet", items: ["Asana", "JIRA", "MS Project", "ServiceNow", "Trello", "Gantt Project"] },
+    { cat: "Méthodes", items: ["TempoTech", "Agile Scrum", "Cycle en V", "PRINCE2", "ITIL"] },
     { cat: "Supervision", items: ["Centreon", "Veeam", "Micro Focus", "Splunk", "Commvault"] },
   ],
   experiences: [
     {
+      company: "BPCE-IT",
+      logo: "/logos/bpce-it.png",
+      period: "Jan. 2026 – Aujourd'hui", duration: BPCE_DURATION_FR,
+      role: "Chef de Projet IT Infrastructure · Référent méthodologie",
+      context: "Bancaire réglementé (Groupe BPCE) · Équipe Projets Transverses (TTO) · Méthodologie TempoTech · Coordination développeurs internes et éditeur Asana · Exigences d'audit BCE & Inspection Générale.",
+      highlights: [
+        "Pilotage de projets techniques transverses de bout en bout : cadrage, architecture, sécurité, budget, planning, risques, comitologie CDAS/CÆSI/COPIL/COPROJ.",
+        "Standardisation de la collecte des logs, métriques et traces via OpenTelemetry : convergence de l'observabilité des socles techniques vers un standard unique.",
+        "Déploiement de la méthodologie TempoTech : accompagnement des chefs de projet (cycle en 4 phases, comitologie, jalons, livrables) et production de trames réutilisables.",
+        "Évolution de l'outil Asana : pilotage des travaux avec les développeurs internes BPCE-IT et l'éditeur — recueil et priorisation des besoins, paramétrage des vues (Gantt, dépendances, dashboards), suivi des livraisons.",
+      ],
+      tags: ["Banque", "TempoTech", "Asana", "OpenTelemetry"],
+    },
+    {
       company: "AXA",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7rycan9s_AXA_Logo.png",
+      logo: "/logos/axa.png",
       period: "Sep. 2024 – Déc. 2025", duration: "1 an 4 mois",
       role: "Chef de Projet IT Infrastructure",
       context: "International FR/EN · Agile Scrum · Gating process groupe AXA · Coordination DevOps, Cloud Broker, Product Owner et équipes métier.",
@@ -216,7 +245,7 @@ const fr = {
     },
     {
       company: "Abeille Assurances",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/bjt3f34t_logo%20abeille%20assurances.png",
+      logo: "/logos/abeille-assurances.png",
       period: "Nov. 2022 – Août 2024", duration: "1 an 10 mois",
       role: "Chef de Projet Infrastructure & Cybersécurité",
       context: "Assurance / Bancaire réglementé · Cycle en V · Coordination Réseaux, Systèmes, Middleware, Stockage, Sécurité · Design Authority & Comité Cyber · FR/EN.",
@@ -231,7 +260,7 @@ const fr = {
     },
     {
       company: "Sanofi",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/2s309tp2_Logo_Sanofi.png",
+      logo: "/logos/sanofi.png",
       period: "Nov. 2021 – Oct. 2022", duration: "1 an",
       role: "Chef de Projet Infrastructure (GxP)",
       context: "Pharmaceutique réglementé GxP · Coordination équipes offshore Cognizant (Inde) · FR/EN.",
@@ -245,7 +274,7 @@ const fr = {
     },
     {
       company: "Lacoste",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/hp4b0use_Lacoste_logo.png",
+      logo: "/logos/lacoste.png",
       period: "Jan. 2021 – Oct. 2021", duration: "10 mois",
       role: "Chef de Projet Réseaux & Télécoms",
       context: "Retail international · Projets FR & USA · FR/EN.",
@@ -259,7 +288,7 @@ const fr = {
     },
     {
       company: "Corelia (ex D.FI)",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/u62qkwwx_Logo%20Corelia.png",
+      logo: "/logos/corelia.png",
       period: "Mar. 2020 – Déc. 2020", duration: "10 mois",
       role: "Chef de Projet Infrastructure (ESN)",
       context: "ESN · Projets clients externes · FR.",
@@ -272,7 +301,7 @@ const fr = {
     },
     {
       company: "BNP Paribas Leasing Solutions",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/y5tbcy56_Logo%20bnp.png",
+      logo: "/logos/bnp-paribas.png",
       period: "Fév. 2019 – Fév. 2020", duration: "1 an",
       role: "Chef de Projet Infrastructure (Banque)",
       context: "Bancaire · Environnements On-Premise critiques · FR/EN.",
@@ -285,7 +314,7 @@ const fr = {
     },
     {
       company: "TotalEnergies",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7w06ic0y_Logo_TotalEnergies.svg",
+      logo: "/logos/totalenergies.png",
       period: "Fév. 2017 – Fév. 2019", duration: "2 ans",
       role: "Chef de Projet Infrastructure Multi-pays",
       context: "International multi-pays · Coordination offshore Capgemini (Inde) et CGI (Maroc, Canada) · FR/EN.",
@@ -299,7 +328,7 @@ const fr = {
     },
     {
       company: "Gebo Cermex",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/8l8ubljw_Gebo_Cermex_logo.png",
+      logo: "/logos/gebo-cermex.png",
       period: "Sep. 2015 – Août 2016", duration: "1 an",
       role: "Apprenti Réseaux, équipe Remote Access",
       context: "Industriel international · FR/EN.",
@@ -313,6 +342,7 @@ const fr = {
     },
   ],
   certifications: [
+    { name: "Asana Administrator", year: "2026", body: "Asana" },
     { name: "PSM1", year: "2025", body: "Scrum.org" },
     { name: "ITIL 4 Foundation", year: "2025", body: "Axelos" },
     { name: "AWS CCP (CLF-C02)", year: "2024", body: "Amazon Web Services" },
@@ -494,7 +524,20 @@ const en = {
   })),
   experiences: [
     {
-      company: "AXA", logo: fr.experiences[0].logo,
+      company: "BPCE-IT", logo: "/logos/bpce-it.png",
+      period: "Jan 2026 – Present", duration: BPCE_DURATION_EN,
+      role: "IT Infrastructure Project Manager · Methodology lead",
+      context: "Regulated banking (Groupe BPCE) · Transverse Projects team (TTO) · TempoTech methodology · Coordination of internal developers and the Asana vendor · ECB & General Inspection audit requirements.",
+      highlights: [
+        "End-to-end management of transverse technical projects: framing, architecture, security, budget, planning, risks, CDAS/CÆSI/COPIL/COPROJ governance.",
+        "Standardization of logs, metrics and traces collection with OpenTelemetry: converging the observability of technical foundations onto a single standard.",
+        "TempoTech methodology rollout: coaching project managers (4-phase lifecycle, governance bodies, milestones, deliverables) and producing reusable templates.",
+        "Asana platform evolution: led the work with internal BPCE-IT developers and the vendor — requirements gathering and prioritization, views setup (Gantt, dependencies, dashboards), delivery tracking.",
+      ],
+      tags: ["Banking", "TempoTech", "Asana", "OpenTelemetry"],
+    },
+    {
+      company: "AXA", logo: fr.experiences[1].logo,
       period: "Sep 2024 – Dec 2025", duration: "1 year 4 months",
       role: "IT Infrastructure Project Manager",
       context: "International FR/EN · Agile Scrum · AXA group gating process · Coordination with DevOps, Cloud Broker, Product Owner and business teams.",
@@ -507,7 +550,7 @@ const en = {
       tags: ["Azure", "Scrum", "Security", "€600k"],
     },
     {
-      company: "Abeille Assurances", logo: fr.experiences[1].logo,
+      company: "Abeille Assurances", logo: fr.experiences[2].logo,
       period: "Nov 2022 – Aug 2024", duration: "1 year 10 months",
       role: "Infrastructure & Cybersecurity Project Manager",
       context: "Regulated insurance/banking · V-model · Coordination of Network, Systems, Middleware, Storage, Security · Design Authority & Cyber Committee · FR/EN.",
@@ -521,7 +564,7 @@ const en = {
       tags: ["AVIVA", "Cyber", "MFA", "AIX"],
     },
     {
-      company: "Sanofi", logo: fr.experiences[2].logo,
+      company: "Sanofi", logo: fr.experiences[3].logo,
       period: "Nov 2021 – Oct 2022", duration: "1 year",
       role: "Infrastructure Project Manager (GxP)",
       context: "Regulated pharmaceutical GxP · Offshore Cognizant teams coordination (India) · FR/EN.",
@@ -534,7 +577,7 @@ const en = {
       tags: ["GxP", "Azure", "Oracle"],
     },
     {
-      company: "Lacoste", logo: fr.experiences[3].logo,
+      company: "Lacoste", logo: fr.experiences[4].logo,
       period: "Jan 2021 – Oct 2021", duration: "10 months",
       role: "Network & Telecom Project Manager",
       context: "International retail · FR & USA projects · FR/EN.",
@@ -547,7 +590,7 @@ const en = {
       tags: ["Retail", "Azure", "Multi-country"],
     },
     {
-      company: "Corelia (ex D.FI)", logo: fr.experiences[4].logo,
+      company: "Corelia (ex D.FI)", logo: fr.experiences[5].logo,
       period: "Mar 2020 – Dec 2020", duration: "10 months",
       role: "Infrastructure Project Manager (IT Services)",
       context: "IT services firm · External clients · FR.",
@@ -559,7 +602,7 @@ const en = {
       tags: ["DR/BCP", "IBM i"],
     },
     {
-      company: "BNP Paribas Leasing Solutions", logo: fr.experiences[5].logo,
+      company: "BNP Paribas Leasing Solutions", logo: fr.experiences[6].logo,
       period: "Feb 2019 – Feb 2020", duration: "1 year",
       role: "Infrastructure Project Manager (Banking)",
       context: "Banking · Critical On-Premise environments · FR/EN.",
@@ -571,7 +614,7 @@ const en = {
       tags: ["Banking", "Linux", "Monitoring"],
     },
     {
-      company: "TotalEnergies", logo: fr.experiences[6].logo,
+      company: "TotalEnergies", logo: fr.experiences[7].logo,
       period: "Feb 2017 – Feb 2019", duration: "2 years",
       role: "Multi-country Infrastructure Project Manager",
       context: "International multi-country · Offshore coordination with Capgemini (India) and CGI (Morocco, Canada) · FR/EN.",
@@ -584,7 +627,7 @@ const en = {
       tags: ["Azure", "Industry", "Drone"],
     },
     {
-      company: "Gebo Cermex", logo: fr.experiences[7].logo,
+      company: "Gebo Cermex", logo: fr.experiences[8].logo,
       period: "Sep 2015 – Aug 2016", duration: "1 year",
       role: "Network Apprentice, Remote Access team",
       context: "International industry · FR/EN.",

@@ -12,7 +12,8 @@ export default function Contact() {
   const u = t.ui.contact;
   const profile = t.profile;
 
-  const [form, setForm] = useState({ name: "", email: "", company: "", subject: "", message: "" });
+  // "website" is an anti-spam honeypot: hidden from humans, bots fill it.
+  const [form, setForm] = useState({ name: "", email: "", company: "", subject: "", message: "", website: "" });
   const [loading, setLoading] = useState(false);
 
   const handle = (k) => (e) => setForm((s) => ({ ...s, [k]: e.target.value }));
@@ -41,6 +42,7 @@ export default function Contact() {
           company: form.company.trim() || undefined,
           subject: form.subject.trim() || undefined,
           message,
+          website: form.website.trim() || undefined,
         }),
       });
 
@@ -55,7 +57,7 @@ export default function Contact() {
       }
 
       toast.success(u.success);
-      setForm({ name: "", email: "", company: "", subject: "", message: "" });
+      setForm({ name: "", email: "", company: "", subject: "", message: "", website: "" });
     } catch (err) {
       console.error("Contact network error:", err);
       const detail = (err && err.message) ? `Réseau : ${err.message}` : u.error_generic;
@@ -105,6 +107,19 @@ export default function Contact() {
 
           <div className="lg:col-span-7">
             <form onSubmit={submit} data-testid="contact-form" className="glass rounded-2xl p-7 md:p-10 space-y-5">
+              {/* Honeypot anti-spam — invisible pour les humains */}
+              <div aria-hidden="true" className="absolute -left-[9999px] top-auto h-px w-px overflow-hidden">
+                <label>
+                  Website
+                  <input
+                    type="text"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    value={form.website}
+                    onChange={handle("website")}
+                  />
+                </label>
+              </div>
               <div className="grid md:grid-cols-2 gap-5">
                 <Field label={u.field_name} required>
                   <input data-testid="contact-input-name" type="text" value={form.name} onChange={handle("name")} placeholder={u.ph_name} className={inputCls} required />
