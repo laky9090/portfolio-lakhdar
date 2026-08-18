@@ -217,7 +217,7 @@ const fr = {
   experiences: [
     {
       company: "BPCE-IT",
-      logo: null,
+      logo: "/logos/bpce-it.png",
       period: "Jan. 2026 – Aujourd'hui", duration: BPCE_DURATION_FR,
       role: "Chef de Projet IT Infrastructure · Référent méthodologie",
       context: "Bancaire réglementé (Groupe BPCE) · Équipe Projets Transverses (TTO) · Méthodologie TempoTech · Coordination développeurs internes et éditeur Asana · Exigences d'audit BCE & Inspection Générale.",
@@ -231,7 +231,7 @@ const fr = {
     },
     {
       company: "AXA",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7rycan9s_AXA_Logo.png",
+      logo: "/logos/axa.png",
       period: "Sep. 2024 – Déc. 2025", duration: "1 an 4 mois",
       role: "Chef de Projet IT Infrastructure",
       context: "International FR/EN · Agile Scrum · Gating process groupe AXA · Coordination DevOps, Cloud Broker, Product Owner et équipes métier.",
@@ -245,7 +245,7 @@ const fr = {
     },
     {
       company: "Abeille Assurances",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/bjt3f34t_logo%20abeille%20assurances.png",
+      logo: "/logos/abeille-assurances.png",
       period: "Nov. 2022 – Août 2024", duration: "1 an 10 mois",
       role: "Chef de Projet Infrastructure & Cybersécurité",
       context: "Assurance / Bancaire réglementé · Cycle en V · Coordination Réseaux, Systèmes, Middleware, Stockage, Sécurité · Design Authority & Comité Cyber · FR/EN.",
@@ -260,7 +260,7 @@ const fr = {
     },
     {
       company: "Sanofi",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/2s309tp2_Logo_Sanofi.png",
+      logo: "/logos/sanofi.png",
       period: "Nov. 2021 – Oct. 2022", duration: "1 an",
       role: "Chef de Projet Infrastructure (GxP)",
       context: "Pharmaceutique réglementé GxP · Coordination équipes offshore Cognizant (Inde) · FR/EN.",
@@ -274,7 +274,7 @@ const fr = {
     },
     {
       company: "Lacoste",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/hp4b0use_Lacoste_logo.png",
+      logo: "/logos/lacoste.png",
       period: "Jan. 2021 – Oct. 2021", duration: "10 mois",
       role: "Chef de Projet Réseaux & Télécoms",
       context: "Retail international · Projets FR & USA · FR/EN.",
@@ -288,7 +288,7 @@ const fr = {
     },
     {
       company: "Corelia (ex D.FI)",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/u62qkwwx_Logo%20Corelia.png",
+      logo: "/logos/corelia.png",
       period: "Mar. 2020 – Déc. 2020", duration: "10 mois",
       role: "Chef de Projet Infrastructure (ESN)",
       context: "ESN · Projets clients externes · FR.",
@@ -301,7 +301,7 @@ const fr = {
     },
     {
       company: "BNP Paribas Leasing Solutions",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/y5tbcy56_Logo%20bnp.png",
+      logo: "/logos/bnp-paribas.png",
       period: "Fév. 2019 – Fév. 2020", duration: "1 an",
       role: "Chef de Projet Infrastructure (Banque)",
       context: "Bancaire · Environnements On-Premise critiques · FR/EN.",
@@ -314,7 +314,7 @@ const fr = {
     },
     {
       company: "TotalEnergies",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/7w06ic0y_Logo_TotalEnergies.svg",
+      logo: "/logos/totalenergies.png",
       period: "Fév. 2017 – Fév. 2019", duration: "2 ans",
       role: "Chef de Projet Infrastructure Multi-pays",
       context: "International multi-pays · Coordination offshore Capgemini (Inde) et CGI (Maroc, Canada) · FR/EN.",
@@ -328,7 +328,7 @@ const fr = {
     },
     {
       company: "Gebo Cermex",
-      logo: "https://customer-assets.emergentagent.com/job_design-impact-16/artifacts/8l8ubljw_Gebo_Cermex_logo.png",
+      logo: "/logos/gebo-cermex.png",
       period: "Sep. 2015 – Août 2016", duration: "1 an",
       role: "Apprenti Réseaux, équipe Remote Access",
       context: "Industriel international · FR/EN.",
@@ -524,7 +524,7 @@ const en = {
   })),
   experiences: [
     {
-      company: "BPCE-IT", logo: null,
+      company: "BPCE-IT", logo: "/logos/bpce-it.png",
       period: "Jan 2026 – Present", duration: BPCE_DURATION_EN,
       role: "IT Infrastructure Project Manager · Methodology lead",
       context: "Regulated banking (Groupe BPCE) · Transverse Projects team (TTO) · TempoTech methodology · Coordination of internal developers and the Asana vendor · ECB & General Inspection audit requirements.",
