@@ -1,6 +1,7 @@
 // Branded monogram marks — reliable cross-browser, consistent visual identity.
 // Colors derived from each company's known brand identity.
 export const COMPANY_MARKS = {
+  "BPCE-IT": { bg: "#5F2D8C", fg: "#FFFFFF", abbr: "BPCE", weight: 700 },
   "AXA": { bg: "#00008F", fg: "#FFFFFF", abbr: "AXA", weight: 700 },
   "Sanofi": { bg: "#7A00E6", fg: "#FFFFFF", abbr: "Sa", weight: 600 },
   "Abeille Assurances": { bg: "#FFD400", fg: "#0B0D10", abbr: "AA", weight: 800 },
